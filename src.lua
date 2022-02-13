@@ -1,6 +1,6 @@
 ---- ExProDex V2 ----
 
-local cloneref = function(ref)
+local cloneref = cloneref or function(ref)
 	return ref
 end
 
@@ -9476,9 +9476,3 @@ function ScrambleNames(A)
 		v.Name = RandomCharacters(math.random(16, 64));
 	end
 end
-
-pcall(function()
-if gethui then
-D_E_X.Parent = gethui()
-end
-end)
