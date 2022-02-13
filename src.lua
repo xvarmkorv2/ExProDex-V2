@@ -4,8 +4,8 @@ local cloneref = cloneref or function(ref)
 	return ref
 end
 
-local InsertService = game:GetService("InsertService")
-local ContentProv = game:GetService("ContentProvider")
+local InsertService = cloneref(game:GetService("InsertService"))
+local ContentProv = cloneref(game:GetService("ContentProvider"))
 
 ContentProv:Preload("rbxassetid://474172996")
 ContentProv:Preload("rbxassetid://2998647800")
@@ -47,9 +47,9 @@ local getobjects = function(a) -- Faster than game:GetObjects(a)
     return Objects
 end
 
-local ScriptContext = game:GetService("ScriptContext")
-local LogService = game:GetService("LogService")
-local UIS = game:GetService("UserInputService")
+local ScriptContext = cloneref(game:GetService("ScriptContext"))
+local LogService = cloneref(game:GetService("LogService"))
+local UIS = cloneref(game:GetService("UserInputService"))
 
 function RandomCharacters(length)
 	local STR = ''
@@ -1943,14 +1943,15 @@ local D_E_X = CreateGui()
 
 pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui
 
-if gethui then
-D_E_X.Parent = cloneref(gethui())
+if gethui or gethiddenui then
+CoreGui = cloneref(gethui()) or cloneref(gethiddenui())
 else
-D_E_X.Parent = cloneref(CoreGui)
+CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
+D_E_X.Parent = CoreGui
 
 task.spawn(function()
 
@@ -9476,3 +9477,9 @@ function ScrambleNames(A)
 		v.Name = RandomCharacters(math.random(16, 64));
 	end
 end
+
+pcall(function()
+if gethui then
+D_E_X.Parent = cloneref(gethui())
+end
+end)
