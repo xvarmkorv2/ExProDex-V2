@@ -4,14 +4,6 @@ local cloneref = function(ref)
 	return ref
 end
 
-local CoreGui
-
-if gethui then
-	CoreGui = gethui()
-else
-	CoreGui = cloneref(game:GetService("CoreGui"))
-end
-
 local InsertService = game:GetService("InsertService")
 local ContentProv = game:GetService("ContentProvider")
 
@@ -1944,15 +1936,21 @@ NewGuiPart162.Archivable = true
 NewGuiPart163.Name = "OpenScript"
 NewGuiPart163.Parent = ScriptEditor
 NewGuiPart163.Archivable = true
-
 return ROBLOX
 end
 
 local D_E_X = CreateGui()
 
-pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end)
+pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
-D_E_X.Parent = CoreGui
+local CoreGui = game:GetService("CoreGui")
+
+if gethui then
+D_E_X.Parent = cloneref(gethui())
+else
+D_E_X.Parent = cloneref(CoreGui)
+end
+
 
 task.spawn(function()
 
