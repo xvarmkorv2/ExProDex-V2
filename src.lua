@@ -6065,8 +6065,8 @@ do
 			
 		local get_scripts = getscripts
 		 local currentTable2 = get_scripts()
-		
-		spawn(function()
+				
+task.spawn(function()
 			while true do
 				if #currentTable2 ~= #get_scripts() then
 					currentTable2 = get_scripts()
@@ -6089,7 +6089,7 @@ do
 		 local get_nil_instances = getnilinstances
 		 local currentTable = get_nil_instances()
 		
-		spawn(function()
+task.spawn(function()
 			while true do
 				if #currentTable ~= #get_nil_instances() then
 					currentTable = get_nil_instances()
@@ -6419,12 +6419,12 @@ Change log:
 task.wait(0.2)
 
 -- Services
-local Teams = game:GetService("Teams")
-local Workspace = game:GetService("Workspace")
-local Debris = game:GetService("Debris")
-local ContentProvider = game:GetService("ContentProvider")
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Teams = cloneref(game:GetService("Teams"))
+local Workspace = cloneref(game:GetService("Workspace"))
+local Debris = cloneref(game:GetService("Debris"))
+local ContentProvider = cloneref(game:GetService("ContentProvider"))
+local Players = cloneref(game:GetService("Players"))
+local ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
 
 -- Functions
 function httpGet(url)
@@ -8380,7 +8380,7 @@ bindGetAwait.OnInvoke = function()
 	return AwaitingObjectValue
 end
 end)
-spawn(function()
+task.spawn(function()
 
 local top = D_E_X.ScriptEditor
 
