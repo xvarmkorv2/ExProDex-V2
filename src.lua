@@ -12,8 +12,8 @@ else
 	CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
-local InsertService = game:GetService("InsertService")
-local ContentProv = game:GetService("ContentProvider")
+local InsertService = cloneref(game:GetService("InsertService"))
+local ContentProv = cloneref(game:GetService("ContentProvider"))
 
 ContentProv:Preload("rbxassetid://474172996")
 ContentProv:Preload("rbxassetid://2998647800")
@@ -55,9 +55,9 @@ local getobjects = function(a) -- Faster than game:GetObjects(a)
     return Objects
 end
 
-local ScriptContext = game:GetService("ScriptContext")
-local LogService = game:GetService("LogService")
-local UIS = game:GetService("UserInputService")
+local ScriptContext = cloneref(game:GetService("ScriptContext"))
+local LogService = cloneref(game:GetService("LogService"))
+local UIS = cloneref(game:GetService("UserInputService"))
 
 function RandomCharacters(length)
 	local STR = ''
@@ -1949,6 +1949,8 @@ return ROBLOX
 end
 
 local D_E_X = CreateGui()
+
+pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end)
 
 D_E_X.Parent = CoreGui
 
