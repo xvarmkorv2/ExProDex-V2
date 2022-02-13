@@ -1951,6 +1951,10 @@ else
 CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
+for i,v in pairs(D_E_X:GetDescendants()) do
+ContentProv:PreloadAsync({v})
+end
+
 D_E_X.Parent = CoreGui
 
 task.spawn(function()
