@@ -1,7 +1,17 @@
----- ExProDex V2 ---
+---- ExProDex V2 ----
 
--- < Services > --
-local CoreGui = game:GetService("CoreGui")
+local cloneref = cloneref or function(ref)
+	return ref
+end
+
+local CoreGui
+
+if gethui or gethiddenui then
+	CoreGui = cloneref(gethui()) or cloneref(gethiddenui())
+else
+	CoreGui = cloneref(game:GetService("CoreGui"))
+end
+
 local InsertService = game:GetService("InsertService")
 local ContentProv = game:GetService("ContentProvider")
 
@@ -1940,13 +1950,7 @@ end
 
 local D_E_X = CreateGui()
 
-pcall(function()
-if gethui then
-D_E_X.Parent = gethui()
-else
 D_E_X.Parent = CoreGui
-end
-end)
 
 task.spawn(function()
 
