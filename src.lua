@@ -1,19 +1,19 @@
 ---- ExProDex V2 ----
 
-local cloneref = cloneref or function(ref)
+local cloneref = function(ref)
 	return ref
 end
 
 local CoreGui
 
-if gethui or gethiddenui then
-	CoreGui = cloneref(gethui()) or cloneref(gethiddenui())
+if gethui then
+	CoreGui = gethui()
 else
 	CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
-local InsertService = cloneref(game:GetService("InsertService"))
-local ContentProv = cloneref(game:GetService("ContentProvider"))
+local InsertService = game:GetService("InsertService")
+local ContentProv = game:GetService("ContentProvider")
 
 ContentProv:Preload("rbxassetid://474172996")
 ContentProv:Preload("rbxassetid://2998647800")
@@ -55,9 +55,9 @@ local getobjects = function(a) -- Faster than game:GetObjects(a)
     return Objects
 end
 
-local ScriptContext = cloneref(game:GetService("ScriptContext"))
-local LogService = cloneref(game:GetService("LogService"))
-local UIS = cloneref(game:GetService("UserInputService"))
+local ScriptContext = game:GetService("ScriptContext")
+local LogService = game:GetService("LogService")
+local UIS = game:GetService("UserInputService")
 
 function RandomCharacters(length)
 	local STR = ''
