@@ -1940,9 +1940,15 @@ end
 
 local D_E_X = CreateGui()
 
+pcall(function()
+if gethui then
+D_E_X.Parent = gethui()
+else
 D_E_X.Parent = CoreGui
+end
+end)
 
-spawn(function()
+task.spawn(function()
 
 local Gui = D_E_X
 
