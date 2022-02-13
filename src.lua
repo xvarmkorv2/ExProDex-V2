@@ -32,11 +32,11 @@ local assets = {
 }
 
 ContentProv:PreloadAsync(assets)
--- < Aliases > --
+
 local table_insert = table.insert
 local table_foreach = table.foreach
 local string_char = string.char
-local getobjects = function(a) -- Faster than game:GetObjects(a)
+local getobjects = function(a)
     local Objects = {}
     if a then
         local b = InsertService:LoadLocalAsset(a)
@@ -223,7 +223,7 @@ local Header_5 = Instance.new("Frame")
 local TextLabel_6 = Instance.new("TextLabel")
 local Desc_6 = Instance.new("TextLabel")
 
-ROBLOX.Name = RandomCharacters(16, 64)
+--ROBLOX.Name = RandomCharacters(16, 64)
 
 PropertiesFrame.Name = "PropertiesFrame"
 PropertiesFrame.Parent = ROBLOX
