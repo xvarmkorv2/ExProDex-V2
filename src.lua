@@ -2470,7 +2470,7 @@ CloseToggleButton.AutoButtonColor = true
 OpenScriptEditorButton.Active = true
 OpenScriptEditorButton.AutoButtonColor = true
 end)
-spawn(function()
+task.spawn(function()
 	-- initial states
 local Option = {
 	-- can modify object parents in the hierarchy
@@ -2959,7 +2959,7 @@ end
 function Connect(event,func)
 	return event:connect(function(...)
 		local a = {...}
-		spawn(function() func(unpack(a)) end)
+		task.spawn(function() func(unpack(a)) end)
 	end)
 end
 
@@ -4111,7 +4111,7 @@ function CreateRightClickMenuItem(text, onClick, insObj)
 		button.FontSize = Enum.FontSize.Size11
 	end
 
-	spawn(function()
+task.spawn(function()
 		while button.Parent ~= nil and button.Parent.Parent ~= nil do
 			game:service'RunService'.Stepped:wait();
 			if not MouseHoveringOver(button) then
@@ -4759,8 +4759,8 @@ function PromptRemoteCaller(inst)
 				table.insert(MyArguments,ToValue(v.Value.Text,v.Type.Text))
 			end
 			if inst:IsA("RemoteFunction") then
-				if displayValues then
-					spawn(function()
+				if displayValues then 
+				task.spawn(function()
 						local myResults = inst:InvokeServer(unpack(MyArguments))
 						if myResults then
 							CreateTableCaution("Remote Caller",myResults)
@@ -4768,8 +4768,8 @@ function PromptRemoteCaller(inst)
 							CreateCaution("Remote Caller","This remote did not return anything.")
 						end
 					end)
-				else
-					spawn(function()
+				else 
+				task.spawn(function()
 						inst:InvokeServer(unpack(MyArguments))
 					end)
 				end
@@ -6390,7 +6390,7 @@ CurrentInsertObjectWindow = CreateInsertObjectMenu(
 	end
 )
 end)
-spawn(function()
+task.spawn(function()
 	--[[
 	
 Change log:
