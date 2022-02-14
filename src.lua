@@ -8384,11 +8384,11 @@ task.spawn(function()
 
 local top = D_E_X.ScriptEditor
 
-print(top)
+--print(top)
 
 local editorGrid = top:WaitForChild("EditorGrid")
 
-print(editorGrid)
+--print(editorGrid)
 
 local currentSource = ""
 local currentScrName = "";
