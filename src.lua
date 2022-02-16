@@ -1,5 +1,50 @@
 ---- ExProDex V2 ----
 
+if (getgenv().DEX_LOADED) then return; end
+
+getgenv().DEX_LOADED = true
+
+
+local Rand = math.random(1e9, 2e9)
+math.randomseed(tick())
+warn(Rand)
+
+pcall(function()
+if identifyexecutor() == "ScriptWare" then
+local function decomp(a)
+    return tostring(disassemble(getscriptbytecode(a)))
+end
+
+getgenv().decompile = decomp
+end
+end)
+
+pcall(function()
+if hookmetamethod and hookfunction then
+local OldIndex
+OldIndex = hookmetamethod(game, "__index", function(Self, Index)
+    return OldIndex(Self, Index)
+end)
+
+local OldNewIndex
+OldNewIndex = hookmetamethod(game, "__newindex", function(Self, Index, Value)
+    return OldNewIndex(Self, Index, Value)
+end)
+
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(Self, ...)
+    return OldNamecall(Self, ...)
+end)
+
+local mt = getrawmetatable(game)
+
+local old
+old = hookfunction(mt.__namecall, function(...)
+   return old(...)
+end)
+end
+end)
+
 local cloneref = cloneref or function(ref)
 	return ref
 end
