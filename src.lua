@@ -1,9 +1,5 @@
 ---- ExProDex V2 ----
 
-if (getgenv().DEX_LOADED) then return; end
-
-getgenv().DEX_LOADED = true
-
 local cloneref = cloneref or function(ref)
 	return ref
 end
