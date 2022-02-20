@@ -1949,10 +1949,14 @@ pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
 local CoreGui
 
-if gethui or gethiddenui then
-CoreGui = cloneref(gethui()) or cloneref(gethiddenui())
+if gethui and identifyexecutor == "ScriptWare" then
+CoreGui = cloneref(gethui())
+else
+if gethiddengui then 
+CoreGui = cloneref(gethiddengui())
 else
 CoreGui = cloneref(game:GetService("CoreGui"))
+end
 end
 
 for i,v in pairs(D_E_X:GetDescendants()) do
