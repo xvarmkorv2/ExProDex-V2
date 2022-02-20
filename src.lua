@@ -66,166 +66,166 @@ function RandomCharacters(length)
 end
 
 CreateGui = function()
-local ROBLOX = Instance.new("ScreenGui")
-local PropertiesFrame = Instance.new("Frame")
-local Header = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-local TextBox = Instance.new("TextBox")
-local ExplorerPanel = Instance.new("Frame")
-local SideMenu = Instance.new("Frame")
-local Toggle = Instance.new("TextButton")
-local Title = Instance.new("TextLabel")
-local Version = Instance.new("TextLabel")
-local Slant = Instance.new("ImageLabel")
-local Main = Instance.new("Frame")
-local SlideOut = Instance.new("Frame")
-local SlideFrame = Instance.new("Frame")
-local Explorer = Instance.new("TextButton")
-local Icon = Instance.new("ImageLabel")
-local SaveMap = Instance.new("TextButton")
-local Icon_2 = Instance.new("ImageLabel")
-local Settings = Instance.new("TextButton")
-local Icon_3 = Instance.new("ImageLabel")
-local Remotes = Instance.new("TextButton")
-local Icon_4 = Instance.new("ImageLabel")
-local About = Instance.new("TextButton")
-local Icon_5 = Instance.new("ImageLabel")
-local OpenScriptEditor = Instance.new("TextButton")
-local Icon_6 = Instance.new("ImageLabel")
-local Toggle_2 = Instance.new("TextButton")
-local SettingsPanel = Instance.new("Frame")
-local Header_2 = Instance.new("Frame")
-local TextLabel_2 = Instance.new("TextLabel")
-local SettingTemplate = Instance.new("Frame")
-local SName = Instance.new("TextLabel")
-local Status = Instance.new("TextLabel")
-local Change = Instance.new("TextButton")
-local OnBar = Instance.new("TextLabel")
-local Bar = Instance.new("TextLabel")
-local SettingList = Instance.new("Frame")
-local SaveInstance = Instance.new("Frame")
-local Title_2 = Instance.new("TextLabel")
-local MainWindow = Instance.new("Frame")
-local Save = Instance.new("TextButton")
-local Desc = Instance.new("TextLabel")
-local Cancel = Instance.new("TextButton")
-local FileName = Instance.new("TextBox")
-local SaveObjects = Instance.new("TextButton")
-local enabled = Instance.new("TextLabel")
-local Desc2 = Instance.new("TextLabel")
-local Confirmation = Instance.new("Frame")
-local Title_3 = Instance.new("TextLabel")
-local MainWindow_2 = Instance.new("Frame")
-local Yes = Instance.new("TextButton")
-local Desc_2 = Instance.new("TextLabel")
-local No = Instance.new("TextButton")
-local Caution = Instance.new("Frame")
-local Title_4 = Instance.new("TextLabel")
-local MainWindow_3 = Instance.new("Frame")
-local Desc_3 = Instance.new("TextLabel")
-local Ok = Instance.new("TextButton")
-local CallRemote = Instance.new("Frame")
-local Title_5 = Instance.new("TextLabel")
-local MainWindow_4 = Instance.new("Frame")
-local Desc_4 = Instance.new("TextLabel")
-local Arguments = Instance.new("ScrollingFrame")
-local DisplayReturned = Instance.new("TextButton")
-local enabled_2 = Instance.new("TextLabel")
-local Desc2_2 = Instance.new("TextLabel")
-local Add = Instance.new("TextButton")
-local Subtract = Instance.new("TextButton")
-local ArgumentTemplate = Instance.new("Frame")
-local Type = Instance.new("TextButton")
-local Value = Instance.new("TextBox")
-local Cancel_2 = Instance.new("TextButton")
-local Ok_2 = Instance.new("TextButton")
-local TableCaution = Instance.new("Frame")
-local MainWindow_5 = Instance.new("Frame")
-local Ok_3 = Instance.new("TextButton")
-local TableResults = Instance.new("ScrollingFrame")
-local TableTemplate = Instance.new("Frame")
-local Type_2 = Instance.new("TextLabel")
-local Value_2 = Instance.new("TextLabel")
-local Title_6 = Instance.new("TextLabel")
-local ScriptEditor = Instance.new("Frame")
-local Title_7 = Instance.new("TextLabel")
-local Cover = Instance.new("Frame")
-local EditorGrid = Instance.new("Frame")
-local TopBar = Instance.new("Frame")
+local ROBLOX = cloneref(Instance.new("ScreenGui"))
+local PropertiesFrame = cloneref(Instance.new("Frame"))
+local Header = cloneref(Instance.new("Frame"))
+local TextLabel = cloneref(Instance.new("TextLabel"))
+local TextBox = cloneref(Instance.new("TextBox"))
+local ExplorerPanel = cloneref(Instance.new("Frame"))
+local SideMenu = cloneref(Instance.new("Frame"))
+local Toggle = cloneref(Instance.new("TextButton"))
+local Title = cloneref(Instance.new("TextLabel"))
+local Version = cloneref(Instance.new("TextLabel"))
+local Slant = cloneref(Instance.new("ImageLabel"))
+local Main = cloneref(Instance.new("Frame"))
+local SlideOut = cloneref(Instance.new("Frame"))
+local SlideFrame = cloneref(Instance.new("Frame"))
+local Explorer = cloneref(Instance.new("TextButton"))
+local Icon = cloneref(Instance.new("ImageLabel"))
+local SaveMap = cloneref(Instance.new("TextButton"))
+local Icon_2 = cloneref(Instance.new("ImageLabel"))
+local Settings = cloneref(Instance.new("TextButton"))
+local Icon_3 = cloneref(Instance.new("ImageLabel"))
+local Remotes = cloneref(Instance.new("TextButton"))
+local Icon_4 = cloneref(Instance.new("ImageLabel"))
+local About = cloneref(Instance.new("TextButton"))
+local Icon_5 = cloneref(Instance.new("ImageLabel"))
+local OpenScriptEditor = cloneref(Instance.new("TextButton"))
+local Icon_6 = cloneref(Instance.new("ImageLabel"))
+local Toggle_2 = cloneref(Instance.new("TextButton"))
+local SettingsPanel = cloneref(Instance.new("Frame"))
+local Header_2 = cloneref(Instance.new("Frame"))
+local TextLabel_2 = cloneref(Instance.new("TextLabel"))
+local SettingTemplate = cloneref(Instance.new("Frame"))
+local SName = cloneref(Instance.new("TextLabel"))
+local Status = cloneref(Instance.new("TextLabel"))
+local Change = cloneref(Instance.new("TextButton"))
+local OnBar = cloneref(Instance.new("TextLabel"))
+local Bar = cloneref(Instance.new("TextLabel"))
+local SettingList = cloneref(Instance.new("Frame"))
+local SaveInstance = cloneref(Instance.new("Frame"))
+local Title_2 = cloneref(Instance.new("TextLabel"))
+local MainWindow = cloneref(Instance.new("Frame"))
+local Save = cloneref(Instance.new("TextButton"))
+local Desc = cloneref(Instance.new("TextLabel"))
+local Cancel = cloneref(Instance.new("TextButton"))
+local FileName = cloneref(Instance.new("TextBox"))
+local SaveObjects = cloneref(Instance.new("TextButton"))
+local enabled = cloneref(Instance.new("TextLabel"))
+local Desc2 = cloneref(Instance.new("TextLabel"))
+local Confirmation = cloneref(Instance.new("Frame"))
+local Title_3 = cloneref(Instance.new("TextLabel"))
+local MainWindow_2 = cloneref(Instance.new("Frame"))
+local Yes = cloneref(Instance.new("TextButton"))
+local Desc_2 = cloneref(Instance.new("TextLabel"))
+local No = cloneref(Instance.new("TextButton"))
+local Caution = cloneref(Instance.new("Frame"))
+local Title_4 = cloneref(Instance.new("TextLabel"))
+local MainWindow_3 = cloneref(Instance.new("Frame"))
+local Desc_3 = cloneref(Instance.new("TextLabel"))
+local Ok = cloneref(Instance.new("TextButton"))
+local CallRemote = cloneref(Instance.new("Frame"))
+local Title_5 = cloneref(Instance.new("TextLabel"))
+local MainWindow_4 = cloneref(Instance.new("Frame"))
+local Desc_4 = cloneref(Instance.new("TextLabel"))
+local Arguments = cloneref(Instance.new("ScrollingFrame"))
+local DisplayReturned = cloneref(Instance.new("TextButton"))
+local enabled_2 = cloneref(Instance.new("TextLabel"))
+local Desc2_2 = cloneref(Instance.new("TextLabel"))
+local Add = cloneref(Instance.new("TextButton"))
+local Subtract = cloneref(Instance.new("TextButton"))
+local ArgumentTemplate = cloneref(Instance.new("Frame"))
+local Type = cloneref(Instance.new("TextButton"))
+local Value = cloneref(Instance.new("TextBox"))
+local Cancel_2 = cloneref(Instance.new("TextButton"))
+local Ok_2 = cloneref(Instance.new("TextButton"))
+local TableCaution = cloneref(Instance.new("Frame"))
+local MainWindow_5 = cloneref(Instance.new("Frame"))
+local Ok_3 = cloneref(Instance.new("TextButton"))
+local TableResults = cloneref(Instance.new("ScrollingFrame"))
+local TableTemplate = cloneref(Instance.new("Frame"))
+local Type_2 = cloneref(Instance.new("TextLabel"))
+local Value_2 = cloneref(Instance.new("TextLabel"))
+local Title_6 = cloneref(Instance.new("TextLabel"))
+local ScriptEditor = cloneref(Instance.new("Frame"))
+local Title_7 = cloneref(Instance.new("TextLabel"))
+local Cover = cloneref(Instance.new("Frame"))
+local EditorGrid = cloneref(Instance.new("Frame"))
+local TopBar = cloneref(Instance.new("Frame"))
 local ScriptBarLeft = Instance.new("ImageButton")
-local ArrowGraphic = Instance.new("Frame")
-local Graphic = Instance.new("Frame")
-local Graphic_2 = Instance.new("Frame")
-local Graphic_3 = Instance.new("Frame")
-local Graphic_4 = Instance.new("Frame")
+local ArrowGraphic = cloneref(Instance.new("Frame"))
+local Graphic = cloneref(Instance.new("Frame"))
+local Graphic_2 = cloneref(Instance.new("Frame"))
+local Graphic_3 = cloneref(Instance.new("Frame"))
+local Graphic_4 = cloneref(Instance.new("Frame"))
 local ScriptBarRight = Instance.new("ImageButton")
-local ArrowGraphic_2 = Instance.new("Frame")
-local Graphic_5 = Instance.new("Frame")
-local Graphic_6 = Instance.new("Frame")
-local Graphic_7 = Instance.new("Frame")
-local Graphic_8 = Instance.new("Frame")
-local Clipboard = Instance.new("TextButton")
-local SaveScript = Instance.new("TextButton")
-local ScriptBar = Instance.new("Frame")
-local Entry = Instance.new("Frame")
-local Button = Instance.new("TextButton")
-local Close = Instance.new("TextButton")
-local Close_2 = Instance.new("TextButton")
-local IntroFrame = Instance.new("Frame")
-local Main_2 = Instance.new("Frame")
-local ImageLabel = Instance.new("ImageLabel")
-local Title_8 = Instance.new("TextLabel")
-local Version_2 = Instance.new("TextLabel")
-local Creator = Instance.new("TextLabel")
-local BG = Instance.new("ImageLabel")
-local Slant_2 = Instance.new("Frame")
-local ImageLabel_2 = Instance.new("ImageLabel")
-local SaveMapWindow = Instance.new("Frame")
-local Header_3 = Instance.new("Frame")
-local TextLabel_3 = Instance.new("TextLabel")
-local MapSettings = Instance.new("Frame")
-local Terrain = Instance.new("Frame")
-local SName_2 = Instance.new("TextLabel")
-local Status_2 = Instance.new("TextLabel")
-local Change_2 = Instance.new("TextButton")
-local OnBar_2 = Instance.new("TextLabel")
-local Bar_2 = Instance.new("TextLabel")
-local Lighting = Instance.new("Frame")
-local SName_3 = Instance.new("TextLabel")
-local Status_3 = Instance.new("TextLabel")
-local Change_3 = Instance.new("TextButton")
-local OnBar_3 = Instance.new("TextLabel")
-local Bar_3 = Instance.new("TextLabel")
-local CameraInstances = Instance.new("Frame")
-local SName_4 = Instance.new("TextLabel")
-local Status_4 = Instance.new("TextLabel")
-local Change_4 = Instance.new("TextButton")
-local OnBar_4 = Instance.new("TextLabel")
-local Bar_4 = Instance.new("TextLabel")
-local Scripts = Instance.new("Frame")
-local SName_5 = Instance.new("TextLabel")
-local Status_5 = Instance.new("TextLabel")
-local Change_5 = Instance.new("TextButton")
-local OnBar_5 = Instance.new("TextLabel")
-local Bar_5 = Instance.new("TextLabel")
-local ToSave = Instance.new("TextLabel")
-local CopyList = Instance.new("Frame")
-local Bottom = Instance.new("Frame")
-local TextLabel_4 = Instance.new("TextLabel")
-local Save_2 = Instance.new("TextButton")
-local FileName_2 = Instance.new("TextBox")
-local Entry_2 = Instance.new("Frame")
-local Change_6 = Instance.new("TextButton")
-local enabled_3 = Instance.new("TextLabel")
-local Info = Instance.new("TextLabel")
-local RemoteDebugWindow = Instance.new("Frame")
-local Header_4 = Instance.new("Frame")
-local TextLabel_5 = Instance.new("TextLabel")
-local Desc_5 = Instance.new("TextLabel")
-local AboutWindow = Instance.new("Frame")
-local Header_5 = Instance.new("Frame")
-local TextLabel_6 = Instance.new("TextLabel")
-local Desc_6 = Instance.new("TextLabel")
+local ArrowGraphic_2 = cloneref(Instance.new("Frame"))
+local Graphic_5 = cloneref(Instance.new("Frame"))
+local Graphic_6 = cloneref(Instance.new("Frame"))
+local Graphic_7 = cloneref(Instance.new("Frame"))
+local Graphic_8 = cloneref(Instance.new("Frame"))
+local Clipboard = cloneref(Instance.new("TextButton"))
+local SaveScript = cloneref(Instance.new("TextButton"))
+local ScriptBar = cloneref(Instance.new("Frame"))
+local Entry = cloneref(Instance.new("Frame"))
+local Button = cloneref(Instance.new("TextButton"))
+local Close = cloneref(Instance.new("TextButton"))
+local Close_2 = cloneref(Instance.new("TextButton"))
+local IntroFrame = cloneref(Instance.new("Frame"))
+local Main_2 = cloneref(Instance.new("Frame"))
+local ImageLabel = cloneref(Instance.new("ImageLabel"))
+local Title_8 = cloneref(Instance.new("TextLabel"))
+local Version_2 = cloneref(Instance.new("TextLabel"))
+local Creator = cloneref(Instance.new("TextLabel"))
+local BG = cloneref(Instance.new("ImageLabel"))
+local Slant_2 = cloneref(Instance.new("Frame"))
+local ImageLabel_2 = cloneref(Instance.new("ImageLabel"))
+local SaveMapWindow = cloneref(Instance.new("Frame"))
+local Header_3 = cloneref(Instance.new("Frame"))
+local TextLabel_3 = cloneref(Instance.new("TextLabel"))
+local MapSettings = cloneref(Instance.new("Frame"))
+local Terrain = cloneref(Instance.new("Frame"))
+local SName_2 = cloneref(Instance.new("TextLabel"))
+local Status_2 = cloneref(Instance.new("TextLabel"))
+local Change_2 = cloneref(Instance.new("TextButton"))
+local OnBar_2 = cloneref(Instance.new("TextLabel"))
+local Bar_2 = cloneref(Instance.new("TextLabel"))
+local Lighting = cloneref(Instance.new("Frame"))
+local SName_3 = cloneref(Instance.new("TextLabel"))
+local Status_3 = cloneref(Instance.new("TextLabel"))
+local Change_3 = cloneref(Instance.new("TextButton"))
+local OnBar_3 = cloneref(Instance.new("TextLabel"))
+local Bar_3 = cloneref(Instance.new("TextLabel"))
+local CameraInstances = cloneref(Instance.new("Frame"))
+local SName_4 = cloneref(Instance.new("TextLabel"))
+local Status_4 = cloneref(Instance.new("TextLabel"))
+local Change_4 = cloneref(Instance.new("TextButton"))
+local OnBar_4 = cloneref(Instance.new("TextLabel"))
+local Bar_4 = cloneref(Instance.new("TextLabel"))
+local Scripts = cloneref(Instance.new("Frame"))
+local SName_5 = cloneref(Instance.new("TextLabel"))
+local Status_5 = cloneref(Instance.new("TextLabel"))
+local Change_5 = cloneref(Instance.new("TextButton"))
+local OnBar_5 = cloneref(Instance.new("TextLabel"))
+local Bar_5 = cloneref(Instance.new("TextLabel"))
+local ToSave = cloneref(Instance.new("TextLabel"))
+local CopyList = cloneref(Instance.new("Frame"))
+local Bottom = cloneref(Instance.new("Frame"))
+local TextLabel_4 = cloneref(Instance.new("TextLabel"))
+local Save_2 = cloneref(Instance.new("TextButton"))
+local FileName_2 = cloneref(Instance.new("TextBox"))
+local Entry_2 = cloneref(Instance.new("Frame"))
+local Change_6 = cloneref(Instance.new("TextButton"))
+local enabled_3 = cloneref(Instance.new("TextLabel"))
+local Info = cloneref(Instance.new("TextLabel"))
+local RemoteDebugWindow = cloneref(Instance.new("Frame"))
+local Header_4 = cloneref(Instance.new("Frame"))
+local TextLabel_5 = cloneref(Instance.new("TextLabel"))
+local Desc_5 = cloneref(Instance.new("TextLabel"))
+local AboutWindow = cloneref(Instance.new("Frame"))
+local Header_5 = cloneref(Instance.new("Frame"))
+local TextLabel_6 = cloneref(Instance.new("TextLabel"))
+local Desc_6 = cloneref(Instance.new("TextLabel"))
 
 --ROBLOX.Name = RandomCharacters(16, 64)
 
@@ -3075,7 +3075,7 @@ do
 			Transparency = 1;
 		})
 		if not template then
-			template = Instance.new("Frame")
+			template = cloneref(Instance.new("Frame"))
 			template.BorderSizePixel = 0
 		end
 
@@ -3152,7 +3152,7 @@ do
 			Transparency = 1;
 		})
 		if not template then
-			template = Instance.new("Frame")
+			template = cloneref(Instance.new("Frame"))
 			template.BorderSizePixel = 0
 		end
 
@@ -3872,7 +3872,7 @@ function CreateInsertObjectMenu(choices, currentChoice, readOnly, onClick)
 	
 	table.sort(choices, function(a,b) return a < b end)
 
-	local frame = Instance.new("Frame")	
+	local frame = cloneref(Instance.new("Frame"))	
 	frame.Name = "InsertObject"
 	frame.Size = UDim2.new(0, 200, 1, 0)
 	frame.BackgroundTransparency = 1
@@ -3884,7 +3884,7 @@ function CreateInsertObjectMenu(choices, currentChoice, readOnly, onClick)
 	local margin = DropDown.BorderSizePixel;
 	
 	--[[
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = Row.Font
 	button.FontSize = Row.FontSize
 	button.TextXAlignment = Row.TextXAlignment
@@ -3910,7 +3910,7 @@ function CreateInsertObjectMenu(choices, currentChoice, readOnly, onClick)
 	
 	local function showMenu()
 		expanded = true
-		menu = Instance.new("ScrollingFrame")
+		menu = cloneref(Instance.new("ScrollingFrame"))
 		menu.Size = UDim2.new(0,200,1,0)
 		menu.CanvasSize = UDim2.new(0, 200, 0, #choices * DropDown.Height)
 		menu.Position = UDim2.new(0, margin, 0, 0)
@@ -3961,7 +3961,7 @@ function CreateFunctionCallerMenu(choices, currentChoice, readOnly, onClick)
 	
 	table.sort(choices, function(a,b) return a.Name < b.Name end)
 
-	local frame = Instance.new("Frame")	
+	local frame = cloneref(Instance.new("Frame"))	
 	frame.Name = "InsertObject"
 	frame.Size = UDim2.new(0, 200, 1, 0)
 	frame.BackgroundTransparency = 1
@@ -3983,7 +3983,7 @@ function CreateFunctionCallerMenu(choices, currentChoice, readOnly, onClick)
 	
 	local function showMenu()
 		expanded = true
-		menu = Instance.new("ScrollingFrame")
+		menu = cloneref(Instance.new("ScrollingFrame"))
 		menu.Size = UDim2.new(0,300,1,0)
 		menu.CanvasSize = UDim2.new(0, 300, 0, #choices * DropDown.Height)
 		menu.Position = UDim2.new(0, margin, 0, 0)
@@ -4093,7 +4093,7 @@ function MouseHoveringOver(GuiObject)
 end
 
 function CreateRightClickMenuItem(text, onClick, insObj)
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = DropDown.Font
 	button.FontSize = DropDown.FontSize
 	button.TextColor3 = DropDown.TextColor
@@ -4159,7 +4159,7 @@ end
 function CreateRightClickMenu(choices, currentChoice, readOnly, onClick)
 	local mouse = game:GetService'Players'.LocalPlayer:GetMouse()
 
-	local frame = Instance.new("Frame")	
+	local frame = cloneref(Instance.new("Frame"))	
 	frame.Name = "DropDown"
 	frame.Size = UDim2.new(0, 200, 1, 0)
 	frame.BackgroundTransparency = 1
@@ -4171,7 +4171,7 @@ function CreateRightClickMenu(choices, currentChoice, readOnly, onClick)
 	local margin = DropDown.BorderSizePixel;
 	
 	--[[
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = Row.Font
 	button.FontSize = Row.FontSize
 	button.TextXAlignment = Row.TextXAlignment
@@ -4197,7 +4197,7 @@ function CreateRightClickMenu(choices, currentChoice, readOnly, onClick)
 	
 	local function showMenu()
 		expanded = true
-		menu = Instance.new("Frame")
+		menu = cloneref(Instance.new("Frame"))
 		menu.Size = UDim2.new(0, 200, 0, #choices * DropDown.Height)
 		menu.Position = UDim2.new(0, margin, 0, 5)
 		menu.BackgroundTransparency = 0
@@ -6941,7 +6941,7 @@ local Icon do
 end
 
 local function CreateCell()
-	local tableCell = Instance.new("Frame")
+	local tableCell = cloneref(Instance.new("Frame"))
 	tableCell.Size = UDim2.new(0.5, -1, 1, 0)
 	tableCell.BackgroundColor3 = Row.BackgroundColor
 	tableCell.BorderColor3 = Row.BorderColor
@@ -6949,7 +6949,7 @@ local function CreateCell()
 end
 	
 local function CreateLabel(readOnly)
-	local label = Instance.new("TextLabel")
+	local label = cloneref(Instance.new("TextLabel"))
 	label.Font = Row.Font
 	label.FontSize = Row.FontSize
 	label.TextXAlignment = Row.TextXAlignment
@@ -6964,7 +6964,7 @@ local function CreateLabel(readOnly)
 end
 
 local function CreateTextButton(readOnly, onClick)
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = Row.Font
 	button.FontSize = Row.FontSize
 	button.TextXAlignment = Row.TextXAlignment
@@ -6981,7 +6981,7 @@ local function CreateTextButton(readOnly, onClick)
 end
 
 local function CreateObject(readOnly)
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = Row.Font
 	button.FontSize = Row.FontSize
 	button.TextXAlignment = Row.TextXAlignment
@@ -7006,7 +7006,7 @@ local function CreateTextBox(readOnly)
 		local box = CreateLabel(readOnly)
 		return box
 	else
-		local box = Instance.new("TextBox")
+		local box = cloneref(Instance.new("TextBox"))
 		if not SettingsRemote:Invoke("ClearProps") then
 			box.ClearTextOnFocus = false
 		end
@@ -7020,7 +7020,7 @@ local function CreateTextBox(readOnly)
 end
 
 local function CreateDropDownItem(text, onClick)
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = DropDown.Font
 	button.FontSize = DropDown.FontSize
 	button.TextColor3 = DropDown.TextColor
@@ -7046,7 +7046,7 @@ local function CreateDropDownItem(text, onClick)
 end
 
 local function CreateDropDown(choices, currentChoice, readOnly, onClick)
-	local frame = Instance.new("Frame")	
+	local frame = cloneref(Instance.new("Frame"))	
 	frame.Name = "DropDown"
 	frame.Size = UDim2.new(1, 0, 1, 0)
 	frame.BackgroundTransparency = 1
@@ -7057,7 +7057,7 @@ local function CreateDropDown(choices, currentChoice, readOnly, onClick)
 	local expanded = false
 	local margin = DropDown.BorderSizePixel;
 	
-	local button = Instance.new("TextButton")
+	local button = cloneref(Instance.new("TextButton"))
 	button.Font = Row.Font
 	button.FontSize = Row.FontSize
 	button.TextXAlignment = Row.TextXAlignment
@@ -7094,7 +7094,7 @@ local function CreateDropDown(choices, currentChoice, readOnly, onClick)
 	
 	local function showMenu()
 		expanded = true
-		menu = Instance.new("Frame")
+		menu = cloneref(Instance.new("Frame"))
 		menu.Size = UDim2.new(1, -2 * margin, 0, #choices * DropDown.Height)
 		menu.Position = UDim2.new(0, margin, 0, Row.Height + margin)
 		menu.BackgroundTransparency = 0
@@ -7154,11 +7154,11 @@ local function CreateDropDown(choices, currentChoice, readOnly, onClick)
 end
 
 local function CreateBrickColor(readOnly, onClick)
-	local frame = Instance.new("Frame")
+	local frame = cloneref(Instance.new("Frame"))
 	frame.Size = UDim2.new(1,0,1,0)
 	frame.BackgroundTransparency = 1
 	
-	local colorPalette = Instance.new("Frame")
+	local colorPalette = cloneref(Instance.new("Frame"))
 	colorPalette.BackgroundTransparency = 0
 	colorPalette.SizeConstraint = Enum.SizeConstraint.RelativeXX
 	colorPalette.Size = UDim2.new(1, -2 * BrickColors.OuterBorder, 1, -2 * BrickColors.OuterBorder)
@@ -7217,7 +7217,7 @@ local function CreateBrickColor(readOnly, onClick)
 		local x = size * (index % BrickColors.ColorsPerRow)
 		local y = size * math.floor(index / BrickColors.ColorsPerRow)
 	
-		local brickColorBox = Instance.new("TextButton")
+		local brickColorBox = cloneref(Instance.new("TextButton"))
 		brickColorBox.Text = ""
 		brickColorBox.Size = UDim2.new(size,0,size,0)
 		brickColorBox.BackgroundColor3 = color3
@@ -7235,7 +7235,7 @@ local function CreateBrickColor(readOnly, onClick)
 end
 
 local function CreateColor3Control(readOnly, onClick)
-	local frame = Instance.new("Frame")
+	local frame = cloneref(Instance.new("Frame"))
 	frame.Size = UDim2.new(1,0,1,0)
 	frame.BackgroundTransparency = 1
 	
@@ -7577,7 +7577,7 @@ function CreateRow(object, propertyData, isAlternateRow)
 	local readOnly = not CanEditProperty(object, propertyData)
 	if propertyType == "Instance" or propertyName == "Parent" then readOnly = true end
 
-	local rowFrame = Instance.new("Frame")
+	local rowFrame = cloneref(Instance.new("Frame"))
 	rowFrame.Size = UDim2.new(1,0,0,Row.Height)
 	rowFrame.BackgroundTransparency = 1
 	rowFrame.Name = 'Row'
@@ -7764,7 +7764,7 @@ function ArrowGraphic(size,dir,scaled,template)
 		Transparency = 1;
 	})
 	if not template then
-		template = Instance.new("Frame")
+		template = cloneref(Instance.new("Frame"))
 		template.BorderSizePixel = 0
 	end
 
@@ -7840,7 +7840,7 @@ function GripGraphic(size,dir,spacing,scaled,template)
 		Transparency = 1;
 	})
 	if not template then
-		template = Instance.new("Frame")
+		template = cloneref(Instance.new("Frame"))
 		template.BorderSizePixel = 0
 	end
 
@@ -8262,7 +8262,7 @@ end
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
-local MainFrame = Instance.new("Frame")
+local MainFrame = cloneref(Instance.new("Frame"))
 MainFrame.Name = "MainFrame"
 MainFrame.Size = UDim2.new(1, -1 * ScrollBarWidth, 1, 0)
 MainFrame.Position = UDim2.new(0, 0, 0, 0)
@@ -8270,7 +8270,7 @@ MainFrame.BackgroundTransparency = 1
 MainFrame.ClipsDescendants = true
 MainFrame.Parent = PropertiesFrame
 
-ContentFrame = Instance.new("Frame")
+ContentFrame = cloneref(Instance.new("Frame"))
 ContentFrame.Name = "ContentFrame"
 ContentFrame.Size = UDim2.new(1, 0, 0, 0)
 ContentFrame.BackgroundTransparency = 1
@@ -8504,7 +8504,7 @@ function ArrowGraphic(size,dir,scaled,template)
 		Transparency = 1;
 	})
 	if not template then
-		template = Instance.new("Frame")
+		template = cloneref(Instance.new("Frame"))
 		template.BorderSizePixel = 0
 	end
 
@@ -8580,7 +8580,7 @@ function GripGraphic(size,dir,spacing,scaled,template)
 		Transparency = 1;
 	})
 	if not template then
-		template = Instance.new("Frame")
+		template = cloneref(Instance.new("Frame"))
 		template.BorderSizePixel = 0
 	end
 
