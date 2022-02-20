@@ -9487,7 +9487,7 @@ function ScrambleNames(A)
 end
 
 pcall(function()
-if gethui then
+if gethui and identifyexecutor() == "ScriptWare" then
 D_E_X.Parent = cloneref(gethui())
 end
 end)
