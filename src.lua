@@ -40,7 +40,7 @@ ContentProv:PreloadAsync(assets)
 local table_insert = table.insert
 local table_foreach = table.foreach
 local string_char = string.char
-local getobjects = function(a)
+local etobjects = function(a)
     local Objects = {}
     if a then
         local b = InsertService:LoadLocalAsset(a)
@@ -9495,5 +9495,11 @@ end
 pcall(function()
 if gethui and identifyexecutor() == "ScriptWare" then
 D_E_X.Parent = gethui()
+end
+end)
+
+pcall(function()
+if gethiddengui then
+D_E_X.Parent = gethiddengui()
 end
 end)
