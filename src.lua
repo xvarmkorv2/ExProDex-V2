@@ -1,3 +1,5 @@
+task.spawn(coroutine.create(function()
+
 ---- ExProDex V2 ----
 
 if (getgenv().DEX_LOADED) then return; end
@@ -9512,3 +9514,4 @@ if gethiddengui then
 D_E_X.Parent = gethiddengui()
 end
 end)
+end))
