@@ -1949,17 +1949,23 @@ pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
 local CoreGui
 
+pcall(function()
 if gethui and identifyexecutor == "ScriptWare" then
 CoreGui = gethui()
 end
-	
+end)
+
+pcall(function()
 if gethiddengui then 
 CoreGui = gethiddengui()
 end
+end)
 
+pcall(function()
 if not gethui or gethiddengui then
 CoreGui = cloneref(game:GetService("CoreGui"))
 end
+end)
 
 for i,v in pairs(D_E_X:GetDescendants()) do
 ContentProv:PreloadAsync({v})
@@ -2026,6 +2032,8 @@ local SelectionChanged = ExplorerPanel:WaitForChild("SelectionChanged")
 local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
 local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
 
+ContentProv:PreloadAsync({Gui})
+		
 local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
 
@@ -3844,9 +3852,9 @@ local function GetAllFunctions(className)
 	while class do
 		if class.Name == "Instance" then break end
 		for _,nextFunction in pairs(class.Functions) do
-			if not FunctionIsHidden(nextFunction) then
+			--if not FunctionIsHidden(nextFunction) then
 				table.insert(functions, nextFunction)
-			end
+			--end
 		end
 		class = RbxApi.Classes[class.Superclass]
 	end
@@ -7666,7 +7674,8 @@ function showProperties(obj)
 			foundProps[nextObj.className] = true
 			for i,v in pairs(RbxApi.GetProperties(nextObj.className)) do
 				local suc, err = pcall(function()
-					if not (PropertyIsHidden(v)) and not checkForDupe(v,propHolder) then
+					if --not (PropertyIsHidden(v)) and 
+						not checkForDupe(v,propHolder) then
 						if string.find(string.lower(v.Name),string.lower(propertiesSearch.Text)) or not searchingProperties() then
 							table.insert(propHolder,{propertyData = v, object = nextObj})
 						end
