@@ -1953,7 +1953,6 @@ if gethui and identifyexecutor() == "ScriptWare" then
 CoreGui = gethui()
 end
 
-
 if gethiddengui and identifyexecutor() == "SynapseX" then 
 CoreGui = gethiddengui()
 end
@@ -1962,9 +1961,7 @@ if not gethui or not gethiddengui then
 CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
---for i,v in pairs(D_E_X:GetDescendants()) do
---ContentProv:PreloadAsync({v})
---end
+ContentProv:PreloadAsync({D_E_X})
 
 D_E_X.Parent = CoreGui
 
