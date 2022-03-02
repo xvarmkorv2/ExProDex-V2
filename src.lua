@@ -6084,7 +6084,7 @@ task.spawn(function()
 					for i,v in pairs(get_scripts()) do
 						if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
 							pcall(function()
-								v.Parent = RunningScriptsStorageMain
+								v:Clone().Parent = RunningScriptsStorageMain
 							end)
 						end
 						task.wait()
@@ -6107,7 +6107,7 @@ task.spawn(function()
 					for i,v in pairs(get_nil_instances()) do
 						if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
 							pcall(function()
-								v.Parent = RunningScriptsStorageMain
+								v:Clone().Parent = RunningScriptsStorageMain
 							end)
 						end
 						task.wait()
