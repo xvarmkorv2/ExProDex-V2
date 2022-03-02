@@ -6084,7 +6084,9 @@ task.spawn(function()
 					for i,v in pairs(get_scripts()) do
 						if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
 							pcall(function()
-								v:Clone().Parent = RunningScriptsStorageMain
+																local instuns = v:Clone()
+pcall(function() if instuns:IsA("LocalScript") then instuns.Disabled = true end end)
+instuns.Parent = RunningScriptsStorageMain
 							end)
 						end
 						task.wait()
@@ -6106,8 +6108,12 @@ task.spawn(function()
 					--RunningScriptsStorageMain:ClearAllChildren()
 					for i,v in pairs(get_nil_instances()) do
 						if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
+
 							pcall(function()
-								v:Clone().Parent = RunningScriptsStorageMain
+								local instuns = v:Clone()
+pcall(function() if instuns:IsA("LocalScript") then instuns.Disabled = true end end)
+instuns.Parent = RunningScriptsStorageMain
+
 							end)
 						end
 						task.wait()
