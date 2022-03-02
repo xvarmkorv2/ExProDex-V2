@@ -1969,6 +1969,8 @@ task.spawn(function()
 
 local Gui = D_E_X
 
+pcall(function() sethiddenproperty(D_E_X, "OnTopOfCoreBlur", true) end)
+
 local IntroFrame = Gui:WaitForChild("IntroFrame")
 
 local SideMenu = Gui:WaitForChild("SideMenu")
