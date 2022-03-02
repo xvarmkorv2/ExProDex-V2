@@ -1950,20 +1950,22 @@ pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 local CoreGui
 
 pcall(function()
-if gethui and identifyexecutor == "ScriptWare" then
+if gethui and identifyexecutor() == "ScriptWare" then
 CoreGui = gethui()
 end
 end)
 
 pcall(function()
-if gethiddengui then 
+if gethiddengui and identifyexecutor() == "SynapseX" then 
 CoreGui = gethiddengui()
 end
 end)
 
 pcall(function()
-if not gethui or gethiddengui then
+if not gethui then
+if not gethiddengui then
 CoreGui = cloneref(game:GetService("CoreGui"))
+end
 end
 end)
 
@@ -9508,7 +9510,7 @@ end
 end)
 
 pcall(function()
-if gethiddengui then
+if gethiddengui and identifyexecutor == "SynapseX" then
 D_E_X.Parent = gethiddengui()
 end
 end)
