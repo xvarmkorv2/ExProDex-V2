@@ -1951,14 +1951,12 @@ local CoreGui
 
 if gethui and identifyexecutor() == "ScriptWare" then
 CoreGui = cloneref(gethui())
-end
-
+else
 if gethiddengui and identifyexecutor() == "SynapseX" then 
 CoreGui = cloneref(gethiddengui())
-end
-
-if not gethui or not gethiddengui then
+else
 CoreGui = cloneref(game:GetService("CoreGui"))
+end
 end
 
 ContentProv:PreloadAsync({D_E_X})
