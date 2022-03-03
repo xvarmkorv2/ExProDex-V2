@@ -1949,21 +1949,25 @@ pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
 local CoreGui
 
-if gethiddengui then
-	CoreGui = cloneref(gethiddengui())
-else
-	CoreGui = cloneref(game:GetService("CoreGui"))
+if gethui and identifyexecutor() == "ScriptWare" then
+CoreGui = cloneref(gethui())
+end
+
+if gethiddengui and identifyexecutor() == "SynapseX" then 
+CoreGui = cloneref(gethiddengui())
+end
+
+if not gethui or not gethiddengui then
+CoreGui = cloneref(game:GetService("CoreGui"))
 end
 
 ContentProv:PreloadAsync({D_E_X})
 
-D_E_X.Parent = CoreGui
+D_E_X.Parent = cloneref(CoreGui)
 
 task.spawn(function()
 
 local Gui = D_E_X
-
-pcall(function() sethiddenproperty(Gui, "OnTopOfCoreBlur", true) end)
 
 local IntroFrame = Gui:WaitForChild("IntroFrame")
 
@@ -9497,12 +9501,12 @@ end
 
 pcall(function()
 if gethui and identifyexecutor() == "ScriptWare" then
-D_E_X.Parent = gethui()
+D_E_X.Parent = cloneref(gethui())
 end
 end)
 
 pcall(function()
 if gethiddengui and identifyexecutor == "SynapseX" then
-D_E_X.Parent = gethiddengui()
+D_E_X.Parent = cloneref(gethiddengui())
 end
 end)
