@@ -2084,11 +2084,7 @@ local CoreGui2
 if gethiddengui then
 CoreGui2 = cloneref(gethiddengui())
 else
-if gethui and identifyexecutor() == "ScriptWare" then
-CoreGui2 = cloneref(gethui())
-else
 CoreGui2 = cloneref(game:GetService("CoreGui"))
-end
 end
 
 ContentProv:PreloadAsync({D_E_X})
@@ -9628,15 +9624,3 @@ function ScrambleNames(A)
 		v.Name = RandomCharacters(math.random(16, 64));
 	end
 end
-
-pcall(function()
-if gethui and identifyexecutor() == "ScriptWare" then
-D_E_X.Parent = cloneref(gethui())
-end
-end)
-
-pcall(function()
-if gethiddengui and identifyexecutor == "SynapseX" then
-D_E_X.Parent = cloneref(gethiddengui())
-end
-end)
