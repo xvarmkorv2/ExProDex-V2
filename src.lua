@@ -128,7 +128,6 @@ HideInMe = cloneref(gethui())
 else
 HideInMe = cloneref(RobloxGui)
 end
-end
 
 Folder.Parent = HideInMe
 
