@@ -8,6 +8,11 @@ local cloneref = cloneref or function(ref)
 	return ref
 end
 
+local function ProtectInstance(obj)
+return Instance.new("Speaker", obj)
+end
+
+
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
@@ -15,6 +20,7 @@ local Folder = cloneref(Instance.new("Folder"))
 task.spawn(function()
 pcall(function()
 if getconnections then
+
 for i, v in next, getconnections(CoreGui.ChildAdded) do
     v:Disable()
 end
@@ -130,6 +136,8 @@ HideInMe = cloneref(RobloxGui)
 end
 
 Folder.Parent = HideInMe
+
+ProtectInstance(Folder)
 
 Folder.Name = math.random(1e9, 2e9)
 
