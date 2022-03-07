@@ -2080,11 +2080,10 @@ pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
 local CoreGui2
 
+if gethiddengui then
+CoreGui2 = cloneref(gethiddengui())
 if gethui and identifyexecutor() == "ScriptWare" then
 CoreGui2 = cloneref(gethui())
-else
-if gethiddengui then 
-CoreGui2 = cloneref(gethiddengui())
 else
 CoreGui2 = cloneref(game:GetService("CoreGui"))
 end
