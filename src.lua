@@ -8,6 +8,129 @@ local cloneref = cloneref or function(ref)
 	return ref
 end
 
+local CoreGui = cloneref(game:GetService("CoreGui"))
+local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
+local Folder = cloneref(Instance.new("Folder"))
+
+task.spawn(function()
+pcall(function()
+if getconnections then
+for i, v in next, getconnections(CoreGui.ChildAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.ChildRemoved) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.DescendantAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.DescendantRemoving) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.childAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.Destroying) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.Changed) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(CoreGui.AncestryChanged) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.DescendantAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.DescendantRemoving) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.ChildAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.ChildRemoved) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.Destroying) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.Changed) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(RobloxGui.AncestryChanged) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.ChildAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.ChildRemoved) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.DescendantAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.DescendantRemoving) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.childAdded) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.Destroying) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.Changed) do
+    v:Disable()
+end
+
+for i, v in next, getconnections(Folder.AncestryChanged) do
+    v:Disable()
+end
+
+end
+end)
+end)
+
+task.spawn(function()
+pcall(function()
+if syn and syn.protect_gui then
+syn.protect_gui(Folder)
+syn.protect_gui(CoreGui)
+syn.protect_gui(RobloxGui)
+end
+end)
+end)
+
+Folder.Parent = RobloxGui
+
+Folder.Name = math.random(1e9, 2e9)
+
+local function gethiddengui()
+    return Folder
+end
+
+getgenv().gethiddengui = gethiddengui
+
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 
