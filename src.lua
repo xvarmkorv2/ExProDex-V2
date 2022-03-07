@@ -8,11 +8,6 @@ local cloneref = cloneref or function(ref)
 	return ref
 end
 
-local function ProtectInstance(obj)
-return Instance.new("Speaker", obj)
-end
-
-
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
@@ -136,8 +131,6 @@ HideInMe = cloneref(RobloxGui)
 end
 
 Folder.Parent = HideInMe
-
-ProtectInstance(Folder)
 
 Folder.Name = math.random(1e9, 2e9)
 
@@ -2090,6 +2083,7 @@ local CoreGui2
 
 if gethiddengui then
 CoreGui2 = cloneref(gethiddengui())
+else
 if gethui and identifyexecutor() == "ScriptWare" then
 CoreGui2 = cloneref(gethui())
 else
