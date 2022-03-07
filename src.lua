@@ -121,7 +121,16 @@ end
 end)
 end)
 
-Folder.Parent = RobloxGui
+local HideInMe
+
+if gethui and identifyexecutor() == "ScriptWare" then
+HideInMe = cloneref(gethui())
+else
+HideInMe = cloneref(RobloxGui)
+end
+end
+
+Folder.Parent = HideInMe
 
 Folder.Name = math.random(1e9, 2e9)
 
@@ -2070,21 +2079,21 @@ local D_E_X = CreateGui()
 
 pcall(function() if syn and syn.protect_gui then syn.protect_gui(D_E_X) end end)
 
-local CoreGui
+local CoreGui2
 
 if gethui and identifyexecutor() == "ScriptWare" then
-CoreGui = cloneref(gethui())
+CoreGui2 = cloneref(gethui())
 else
-if gethiddengui and identifyexecutor() == "SynapseX" then 
-CoreGui = cloneref(gethiddengui())
+if gethiddengui then 
+CoreGui2 = cloneref(gethiddengui())
 else
-CoreGui = cloneref(game:GetService("CoreGui"))
+CoreGui2 = cloneref(game:GetService("CoreGui"))
 end
 end
 
 ContentProv:PreloadAsync({D_E_X})
 
-D_E_X.Parent = cloneref(CoreGui)
+D_E_X.Parent = cloneref(CoreGui2)
 
 task.spawn(function()
 
