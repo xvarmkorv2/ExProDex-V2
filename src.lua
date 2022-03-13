@@ -29,7 +29,6 @@ else
     HideInMe = cloneref(RobloxGui)
 end
 Folder.Name = nCreate()
-Folder.Parent = HideInMe
 local function gethiddengui()
     return Folder
 end
@@ -148,6 +147,8 @@ task.spawn(function()
         end
     end)
 end)
+Folder.Parent = HideInMe
+
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 ContentProv:Preload("rbxassetid://474172996")
