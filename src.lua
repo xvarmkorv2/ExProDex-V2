@@ -19,6 +19,7 @@ function nCreate()
     local nString = ""
     for _ = 1, 20 do
         nString = string.upper(nString .. string.char(math.random(97, 122)))
+        task.wait()
     end
     return nString
 end
@@ -35,6 +36,7 @@ end
 getgenv().gethiddengui = gethiddengui
 pcall(function()
     CoreGui.RobloxGui:FindFirstChild("SaveInstance", true).Parent.Parent:Destroy()
+    task.wait()
 end)
 task.spawn(function()
     pcall(function()
@@ -42,72 +44,95 @@ task.spawn(function()
             for i, v in next, getconnections(CoreGui.ChildAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(CoreGui.ChildRemoved) do
                 v:Disable()
             end
+            task.wait()                    
             for i, v in next, getconnections(CoreGui.DescendantAdded) do
                 v:Disable()
             end
+            task.wait()                    
             for i, v in next, getconnections(CoreGui.DescendantRemoving) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(CoreGui.childAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(CoreGui.Destroying) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(CoreGui.Changed) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(CoreGui.AncestryChanged) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.DescendantAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.DescendantRemoving) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.ChildAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.ChildRemoved) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.Destroying) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.Changed) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(RobloxGui.AncestryChanged) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.ChildAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.ChildRemoved) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.DescendantAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.DescendantRemoving) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.childAdded) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.Destroying) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.Changed) do
                 v:Disable()
             end
+            task.wait()
             for i, v in next, getconnections(Folder.AncestryChanged) do
                 v:Disable()
             end
+          task.wait()
         end
     end)
 end)
@@ -115,8 +140,11 @@ task.spawn(function()
     pcall(function()
         if syn and syn.protect_gui then
             syn.protect_gui(Folder)
+            task.wait()
             syn.protect_gui(CoreGui)
+            task.wait()
             syn.protect_gui(RobloxGui)
+            task.wait()
         end
     end)
 end)
@@ -139,7 +167,7 @@ ContentProv:PreloadAsync(assets)
 local table_insert = table.insert
 local table_foreach = table.foreach
 local string_char = string.char
-local etobjects = function(a)
+local getobjects = function(a)
     local Objects = {}
     if a then
         local b = InsertService:LoadLocalAsset(a)
@@ -1666,6 +1694,7 @@ local D_E_X = CreateGui()
 pcall(function()
     if syn and syn.protect_gui then
         syn.protect_gui(D_E_X)
+        task.wait()
     end
 end)
 local CoreGui2
@@ -1723,7 +1752,6 @@ task.spawn(function()
     local SelectionChanged = ExplorerPanel:WaitForChild("SelectionChanged")
     local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
     local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
-    ContentProv:PreloadAsync({Gui})
     local Player = game:GetService("Players").LocalPlayer
     local Mouse = Player:GetMouse()
     local CurrentWindow = "Nothing c:"
@@ -1829,7 +1857,7 @@ task.spawn(function()
         end
         newSetting.Change.MouseButton1Click:connect(function()
             toggle(not Settings[interName])
-            wait(1 / 12);
+            task.wait(1 / 12);
             pcall(SaveSettings);
         end)
         newSetting.Visible = true
@@ -3402,7 +3430,7 @@ task.spawn(function()
         end
         task.spawn(function()
             while button.Parent ~= nil and button.Parent.Parent ~= nil do
-                game:service 'RunService'.Stepped:wait();
+                cloneref(game:GetService("RunService")).Stepped:wait();
                 if not MouseHoveringOver(button) then
                     button.TextColor3 = DropDown.TextColor
                     button.BackgroundColor3 = DropDown.BackColor
@@ -3684,7 +3712,7 @@ task.spawn(function()
                     node.Selected = true
                     -- expand all ancestors so that selected node becomes visible
                     node = node.Parent
-                    while node and game:GetService("RunService").RenderStepped:Wait() do
+                    while node and cloneref(game:GetService("RunService")).RenderStepped:Wait() do
                         if not node.Expanded then
                             node.Expanded = true
                             lupdate = true
