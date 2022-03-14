@@ -7,6 +7,16 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
+pcall(function()
+if identifyexecutor() == "ScriptWare" then
+local function decomp(a)
+    return tostring(disassemble(getscriptbytecode(a)))
+end
+
+getgenv().decompile = decomp
+end
+end)
+
 local cloneref = cloneref or function(ref)
     return ref
 end
