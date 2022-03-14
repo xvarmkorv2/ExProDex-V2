@@ -149,8 +149,6 @@ task.spawn(function()
 end)
 Folder.Parent = HideInMe
 
-task.wait()
-
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 ContentProv:Preload("rbxassetid://474172996")
@@ -1967,13 +1965,13 @@ task.spawn(function()
             saveinstance {
                 noscripts = false,
                 mode = "optimized",
-                decomptype = 'new'
+                decomptype = "new"
             }
         else
             saveinstance {
                 noscripts = true,
                 mode = "optimized",
-                decomptype = 'new'
+                decomptype = "new"
             }
         end
     end)
@@ -2019,7 +2017,7 @@ task.spawn(function()
     local GUI_SIZE = 16
     local ENTRY_PADDING = 1
     local ENTRY_MARGIN = 1
-    local Input = cloneref(game:GetService("UserInputService"))
+    local Input = game:GetService("UserInputService")
     local HoldingCtrl = false
     local HoldingShift = false
     local ENTRY_SIZE = GUI_SIZE + ENTRY_PADDING * 2
@@ -2998,10 +2996,9 @@ task.spawn(function()
         DexStorageEnabled = true
     end
     if DexStorageEnabled then
-        DexStorage = cloneref(Instance.new("Folder"))
+        DexStorage = Instance.new("Folder")
         DexStorage.Name = "Dex"
-        DexStorageMain = cloneref(Instance.new("Folder"))
-        DexStorageMain.Parent = DexStorage
+        DexStorageMain = Instance.new("Folder", DexStorage)
         DexStorageMain.Name = "DexStorage"
     end
     local RunningScriptsStorage
@@ -3011,10 +3008,9 @@ task.spawn(function()
         RunningScriptsStorageEnabled = true
     end
     if RunningScriptsStorageEnabled then
-        RunningScriptsStorage = cloneref(Instance.new("Folder"))
+        RunningScriptsStorage = Instance.new("Folder")
         RunningScriptsStorage.Name = "Dex Internal Storage"
-        RunningScriptsStorageMain = cloneref(Instance.new("Folder"))
-        RunningScriptsStorageMain.Parent = RunningScriptsStorage
+        RunningScriptsStorageMain = Instance.new("Folder", RunningScriptsStorage)
         RunningScriptsStorageMain.Name = "Running Scripts & Nil Instances"
     end
     local nilStorage
@@ -4350,7 +4346,7 @@ task.spawn(function()
                         PromptSaveInstance(list[1]:Clone())
                     end)
                 elseif #list > 1 then
-                    local newModel = Instance.new("Model")
+                    local newModel = cloneref(Instance.new("Model"))
                     newModel.Name = "SavedInstances"
                     for i = 1, #list do
                         ypcall(function()
