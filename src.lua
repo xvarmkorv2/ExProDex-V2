@@ -1959,7 +1959,7 @@ task.spawn(function()
     SaveMapName.Text = tostring(game.PlaceId) .. "MapCopy"
     SaveMapButton.MouseButton1Click:connect(function()
         local copyWhat = {}
-        local copyGroup = cloneref(Instance.new("Model"))
+        local copyGroup = Instance.new("Model", game:GetService("ReplicatedScriptService"))
         local copyScripts = SaveMapSettings.SaveScripts
         if copyScripts then
             saveinstance {
