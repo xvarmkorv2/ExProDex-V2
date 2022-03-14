@@ -1958,6 +1958,9 @@ task.spawn(function()
     createCopyWhatSetting("StarterPlayer")
     SaveMapName.Text = tostring(game.PlaceId) .. "MapCopy"
     SaveMapButton.MouseButton1Click:connect(function()
+                if identifyexecutor() == "ScriptWare" then 
+                    return saveinstance()
+                    end
         local copyWhat = {}
         local copyGroup = Instance.new("Model", game:GetService("ReplicatedScriptService"))
         local copyScripts = SaveMapSettings.SaveScripts
