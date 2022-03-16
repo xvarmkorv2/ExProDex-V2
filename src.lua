@@ -7,6 +7,10 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
+if (getgenv().EXPRODEX_LOADED) then return; end
+
+getgenv().EXPRODEX_LOADED = true
+
 pcall(function()
 if identifyexecutor() == "ScriptWare" then
 local function decomp(a)
@@ -43,10 +47,7 @@ local function gethiddengui()
     return Folder
 end
 getgenv().gethiddengui = gethiddengui
-pcall(function()
-    CoreGui.RobloxGui:FindFirstChild("SaveInstance", true).Parent.Parent:Destroy()
-    task.wait()
-end)
+
 task.spawn(function()
     pcall(function()
         if getconnections then
