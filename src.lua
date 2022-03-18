@@ -160,6 +160,23 @@ task.spawn(function()
 end)
 Folder.Parent = HideInMe
 
+task.spawn(function()
+pcall(function()             
+for i, v in ipairs(game:GetChildren()) do
+	if v.Name == "Instance" then
+		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
+		v:Disable()
+        end
+    end
+end          
+for i, v in ipairs(game:GetChildren()) do
+    if v.Name == "Instance" then
+    v.Name = v.ClassName
+	end
+end
+end)
+end)
+
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 ContentProv:Preload("rbxassetid://474172996")
