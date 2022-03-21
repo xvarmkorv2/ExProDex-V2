@@ -25,6 +25,38 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+pcall(function()
+if hookmetamethod and checkcaller and getnamecallmethod then
+
+--- thanks alex uwu ---
+			
+local _GetService = game.GetService
+
+local function CloneService(self, service)
+    return cloneref(_GetService(self, service))
+end
+
+
+local old_index4;
+old_index4 = hookmetamethod(game, "__index", function(self, index)
+    if (checkcaller() and self == game and index:lower() == "getservice") then
+        return CloneService
+    end
+    return old_index4(self, index);
+end);
+
+local old_namecall4;
+old_namecall4 = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod();
+    if (checkcaller() and self == game and method:lower() == "getservice") then
+        return CloneService(game, ...)
+    end
+    return old_namecall4(self, ...);
+end);	
+end
+
+end)
+
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
