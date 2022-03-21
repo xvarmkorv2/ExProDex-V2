@@ -25,6 +25,8 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
+
 pcall(function()
 if hookmetamethod and checkcaller and getnamecallmethod then
 
