@@ -1992,7 +1992,7 @@ task.spawn(function()
                     return saveinstance()
                     end
         local copyWhat = {}
-        local copyGroup = Instance.new("Model", game:GetService("ReplicatedScriptService"))
+        local copyGroup = Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage")))
         local copyScripts = SaveMapSettings.SaveScripts
         if copyScripts then
             saveinstance {
