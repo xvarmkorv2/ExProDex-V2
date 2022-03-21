@@ -179,6 +179,46 @@ end
 end)
 end)
 
+pcall(function()
+if hookmetamethod and getnamecallmethod and newcclosure and checkcaller then
+
+--- tealingg i love u dad ---
+
+--- FindService + other shit patch ---
+			
+local old_namecall_420;
+old_namecall_420 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindService" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420(...);
+end));
+
+local old_namecall_420_69;
+old_namecall_420_69 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChild" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420_69(...);
+end));
+
+local old_namecall_420_69_21;
+old_namecall_420_69_21 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChildOfClass" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420_69_21(...);
+end));
+end
+end)		
+
+
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 ContentProv:Preload("rbxassetid://474172996")
@@ -1992,7 +2032,7 @@ task.spawn(function()
                     return saveinstance()
                     end
         local copyWhat = {}
-        local copyGroup = Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage")))
+        local copyGroup = Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage"))) --- kaid meow
         local copyScripts = SaveMapSettings.SaveScripts
         if copyScripts then
             saveinstance {
