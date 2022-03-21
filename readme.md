@@ -2,7 +2,7 @@ After the success of ExProDex V1 and it's other counterparts, such as Syndexpro 
 
 ExProDex V2 is the outcome of the visions of that mission.
 
-Building from the foundations of Dex V2, this edit will leave you gasping for breath with it's fast loading, fast searching, and fast instance indexing.
+Building from the foundations of Dex V2, this edit will leave you gasping for breath with it's fast loading, fast searching, and fast property indexing.
 
 My aim was to build on the success of ExProDex V1 and create a far superior Dex, and boy have I achieved it.
 
