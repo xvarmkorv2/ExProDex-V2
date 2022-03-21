@@ -1804,7 +1804,7 @@ local CoreGui2
 if gethiddengui then
     CoreGui2 = cloneref(gethiddengui())
 else
-    CoreGui2 = cloneref(game:GetService("CoreGui"))
+    CoreGui2 = cloneref(game:GetService("CoreGui"):WaitForChild("RobloxGui"))
 end
 ContentProv:PreloadAsync({D_E_X})
 D_E_X.Parent = cloneref(CoreGui2)
@@ -1855,7 +1855,8 @@ task.spawn(function()
     local SelectionChanged = ExplorerPanel:WaitForChild("SelectionChanged")
     local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
     local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
-    local Player = game:GetService("Players").LocalPlayer
+    local Players = cloneref(game:GetService("Players"))
+    local Player = Players.LocalPlayer
     local Mouse = Player:GetMouse()
     local CurrentWindow = "Nothing c:"
     local Windows = {
@@ -2122,7 +2123,7 @@ task.spawn(function()
     local GUI_SIZE = 16
     local ENTRY_PADDING = 1
     local ENTRY_MARGIN = 1
-    local Input = game:GetService("UserInputService")
+    local Input = cloneref(game:GetService("UserInputService"))
     local HoldingCtrl = false
     local HoldingShift = false
     local ENTRY_SIZE = GUI_SIZE + ENTRY_PADDING * 2
@@ -2494,7 +2495,8 @@ task.spawn(function()
     local Icon
     do
         local iconMap = 'http://www.roblox.com/asset/?id=' .. MAP_ID
-        game:GetService('ContentProvider'):Preload(iconMap)
+        local ContentProvider = cloneref(game:GetService("ContentProvider"))
+	ContentProvider:Preload(iconMap)
         local iconDehash
         do
             local f = math.floor
@@ -2992,8 +2994,9 @@ task.spawn(function()
                     local mouse_offset = x - ScrollThumbFrame.AbsolutePosition.x
                     local drag_con
                     local up_con
+		    local u_is = cloneref(game:GetService("UserInputService"))
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not u_is:IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -3027,8 +3030,9 @@ task.spawn(function()
                     local mouse_offset = y - ScrollThumbFrame.AbsolutePosition.y
                     local drag_con
                     local up_con
+		    local u_is = cloneref(game:GetService("UserInputService"))
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not u_is:IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -3323,7 +3327,8 @@ task.spawn(function()
         return functionTable
     end
     function CreateInsertObjectMenu(choices, currentChoice, readOnly, onClick)
-        local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local plrs = cloneref(game:GetService("Players"))
+	local mouse = plrs.LocalPlayer:GetMouse()
         local totalSize = explorerPanel.Parent.AbsoluteSize.y
         if #choices == 0 then
             return
@@ -3387,7 +3392,8 @@ task.spawn(function()
         return frame
     end
     function CreateFunctionCallerMenu(choices, currentChoice, readOnly, onClick)
-        local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local plrs = cloneref(game:GetService("Players"))
+	local mouse = plrs.LocalPlayer:GetMouse()
         local totalSize = explorerPanel.Parent.AbsoluteSize.y
         if #choices == 0 then
             return
@@ -3502,7 +3508,7 @@ task.spawn(function()
             CurrentFunctionCallerWindow.Parent = explorerPanel.Parent
         end
     end
-    local UserInputService = game:GetService 'UserInputService';
+    local UserInputService = cloneref(game:GetService("UserInputService"))
     function GetMouseLocation()
         return UserInputService:GetMouseLocation() - Vector2.new(0, 36);
     end
@@ -3574,7 +3580,8 @@ task.spawn(function()
         return button
     end
     function CreateRightClickMenu(choices, currentChoice, readOnly, onClick)
-        local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local plrs = cloneref(game:GetService("Players"))
+	local mouse = plrs.LocalPlayer:GetMouse()
         local frame = cloneref(Instance.new("Frame"))
         frame.Name = "DropDown"
         frame.Size = UDim2.new(0, 200, 1, 0)
