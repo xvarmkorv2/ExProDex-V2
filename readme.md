@@ -1,4 +1,4 @@
-After the success of ExProDex V1 and it's other counterparts, such as Syndexpro and BetterDarkDex, I went on a mission to make the best Dex edit ever known to humanity.
+After the success of ExProDex V1 and it's other counterparts, such as Syndexpro and BetterDarkDex, I went on a mission to make the best Dex edit ever known.
 
 ExProDex V2 is the outcome of the visions of that mission.
 
