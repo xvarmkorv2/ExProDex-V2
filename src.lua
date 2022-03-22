@@ -94,98 +94,99 @@ getgenv().gethiddengui = gethiddengui
 task.spawn(function()
     pcall(function()
         if getconnections then
+            
             for i, v in next, getconnections(CoreGui.ChildAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(CoreGui.ChildRemoved) do
                 v:Disable()
             end
-            wait()                   
+                               
             for i, v in next, getconnections(CoreGui.DescendantAdded) do
                 v:Disable()
             end
-            wait()                    
+                                
             for i, v in next, getconnections(CoreGui.DescendantRemoving) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(CoreGui.childAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(CoreGui.Destroying) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(CoreGui.Changed) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(CoreGui.AncestryChanged) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.DescendantAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.DescendantRemoving) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.ChildAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.ChildRemoved) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.Destroying) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.Changed) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(RobloxGui.AncestryChanged) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.ChildAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.ChildRemoved) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.DescendantAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.DescendantRemoving) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.childAdded) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.Destroying) do
                 v:Disable()
             end
-            wait()
+            
             for i, v in next, getconnections(Folder.Changed) do
                 v:Disable()
             end
-            wait()
+           
             for i, v in next, getconnections(Folder.AncestryChanged) do
                 v:Disable()
             end
-          wait()
+
         end
     end)
 end)
@@ -193,11 +194,8 @@ task.spawn(function()
     pcall(function()
         if syn and syn.protect_gui then
             syn.protect_gui(Folder)
-            wait()
             syn.protect_gui(CoreGui)
-            wait()
             syn.protect_gui(RobloxGui)
-            wait()
         end
     end)
 end)
@@ -274,10 +272,7 @@ ContentProv:Preload("rbxassetid://7360649366")
 ContentProv:Preload("rbxassetid://969742484")
 ContentProv:Preload("rbxassetid://483448923")
 ContentProv:Preload("rbxassetid://418720155")
-local assets = {"rbxassetid://474172996", "rbxassetid://2998647800", "rbxassetid://59784769", "rbxassetid://4492476121",
-                "rbxassetid://4460063940", "rbxassetid://5832745500", "rbxassetid://7360649366",
-                "rbxassetid://483448923", "rbxassetid://418720155", "rbxassetid://969742484"}
-ContentProv:PreloadAsync(assets)
+
 local table_insert = table.insert
 local table_foreach = table.foreach
 local string_char = string.char
@@ -291,6 +286,7 @@ local getobjects = function(a)
     end
     return Objects
 end
+
 local ScriptContext = cloneref(game:GetService("ScriptContext"))
 local LogService = cloneref(game:GetService("LogService"))
 local UIS = cloneref(game:GetService("UserInputService"))
@@ -1817,7 +1813,6 @@ if gethiddengui then
 else
     CoreGui2 = cloneref(game:GetService("CoreGui"):WaitForChild("RobloxGui"))
 end
-ContentProv:PreloadAsync({D_E_X})
 D_E_X.Parent = cloneref(CoreGui2)
 task.spawn(function()
     local Gui = D_E_X
