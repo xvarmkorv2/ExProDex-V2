@@ -76,7 +76,6 @@ function nCreate()
     local nString = ""
     for _ = 1, 20 do
         nString = string.upper(nString .. string.char(math.random(97, 122)))
-        wait()
     end
     return nString
 end
@@ -212,7 +211,7 @@ for i, v in ipairs(game:GetChildren()) do
     end
 end          
 for i, v in ipairs(game:GetChildren()) do
-    if v.Name == "Instance" then
+    if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
     v.Name = v.ClassName
     end
 end
