@@ -68,8 +68,6 @@ repeat task.wait(0/1) until (tick() - t) >= int
     return (tick() - t), t
 end
 
-getgenv().wait = wait
-
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
