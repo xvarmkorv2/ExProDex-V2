@@ -59,6 +59,17 @@ end
 
 end)
 
+local wait = function(int)
+if not int then
+   int = 0
+end
+local t = tick()
+repeat task.wait(0/1) until (tick() - t) >= int
+    return (tick() - t), t
+end
+
+getgenv().wait = wait
+
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
@@ -67,7 +78,7 @@ function nCreate()
     local nString = ""
     for _ = 1, 20 do
         nString = string.upper(nString .. string.char(math.random(97, 122)))
-        task.wait()
+        wait()
     end
     return nString
 end
@@ -88,95 +99,95 @@ task.spawn(function()
             for i, v in next, getconnections(CoreGui.ChildAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(CoreGui.ChildRemoved) do
                 v:Disable()
             end
-            task.wait()                    
+            wait()                   
             for i, v in next, getconnections(CoreGui.DescendantAdded) do
                 v:Disable()
             end
-            task.wait()                    
+            wait()                    
             for i, v in next, getconnections(CoreGui.DescendantRemoving) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(CoreGui.childAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(CoreGui.Destroying) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(CoreGui.Changed) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(CoreGui.AncestryChanged) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.DescendantAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.DescendantRemoving) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.ChildAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.ChildRemoved) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.Destroying) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.Changed) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(RobloxGui.AncestryChanged) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.ChildAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.ChildRemoved) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.DescendantAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.DescendantRemoving) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.childAdded) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.Destroying) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.Changed) do
                 v:Disable()
             end
-            task.wait()
+            wait()
             for i, v in next, getconnections(Folder.AncestryChanged) do
                 v:Disable()
             end
-          task.wait()
+          wait()
         end
     end)
 end)
@@ -184,11 +195,11 @@ task.spawn(function()
     pcall(function()
         if syn and syn.protect_gui then
             syn.protect_gui(Folder)
-            task.wait()
+            wait()
             syn.protect_gui(CoreGui)
-            task.wait()
+            wait()
             syn.protect_gui(RobloxGui)
-            task.wait()
+            wait()
         end
     end)
 end)
@@ -1799,7 +1810,7 @@ local D_E_X = CreateGui()
 pcall(function()
     if syn and syn.protect_gui then
         syn.protect_gui(D_E_X)
-        task.wait()
+        wait()
     end
 end)
 local CoreGui2
@@ -1963,7 +1974,7 @@ task.spawn(function()
         end
         newSetting.Change.MouseButton1Click:connect(function()
             toggle(not Settings[interName])
-            task.wait(1 / 12);
+            wait(1 / 12);
             pcall(SaveSettings);
         end)
         newSetting.Visible = true
@@ -2084,11 +2095,11 @@ task.spawn(function()
         end
     end)
     -- End Copier
-    task.wait()
+    wait()
     IntroFrame:TweenPosition(UDim2.new(1, -300, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
-    task.wait(1)
+    wait(1)
     switchWindows("Explorer")
-    task.wait(0.5)
+    wait(0.5)
     SideMenu.Visible = true
     for i = 0, 1, 0.1 do
         IntroFrame.BackgroundTransparency = i
@@ -2097,7 +2108,7 @@ task.spawn(function()
         IntroFrame.Title.TextTransparency = i
         IntroFrame.Version.TextTransparency = i
         IntroFrame.Creator.TextTransparency = i
-        task.wait()
+        wait()
     end
     IntroFrame.Visible = false
     SlideFrame:TweenPosition(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
@@ -2105,11 +2116,11 @@ task.spawn(function()
         true)
     CloseToggleButton:TweenPosition(UDim2.new(0, 0, 0, 210), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
     Slant:TweenPosition(UDim2.new(0, 0, 0, 240), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
-    task.wait(0.5)
+    wait(0.5)
     for i = 1, 0, -0.1 do
         OpenScriptEditorButton.Icon.ImageTransparency = i
         CloseToggleButton.TextTransparency = i
-        task.wait()
+        wait()
     end
     CloseToggleButton.Active = true
     CloseToggleButton.AutoButtonColor = true
@@ -2882,13 +2893,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollDown()
-                task.wait(0.2) -- delay before auto scroll
+                wait(0.2) -- delay before auto scroll
                 while scrollEventID == current do
                     Class:ScrollDown()
                     if not Class:CanScrollDown() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollDownFrame.MouseButton1Up:connect(function()
@@ -2907,13 +2918,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollUp()
-                task.wait(0.2)
+                wait(0.2)
                 while scrollEventID == current do
                     Class:ScrollUp()
                     if not Class:CanScrollUp() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollUpFrame.MouseButton1Up:connect(function()
@@ -2934,23 +2945,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if x > ScrollThumbFrame.AbsolutePosition.x then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x < ScrollThumbFrame.AbsolutePosition.x + ScrollThumbFrame.AbsoluteSize.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x > ScrollThumbFrame.AbsolutePosition.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -2969,23 +2980,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if y > ScrollThumbFrame.AbsolutePosition.y then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y < ScrollThumbFrame.AbsolutePosition.y + ScrollThumbFrame.AbsoluteSize.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y > ScrollThumbFrame.AbsolutePosition.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -3769,7 +3780,7 @@ task.spawn(function()
                 return
             end
             updatingList = true
-            task.wait(2.25)
+            wait(2.25)
             updatingList = false
             rawUpdateList()
         end
@@ -3779,7 +3790,7 @@ task.spawn(function()
                 return
             end
             updatingScroll = true
-            task.wait(2.25)
+            wait(2.25)
             updatingScroll = false
             scrollBar:Update()
         end
@@ -5263,7 +5274,7 @@ task.spawn(function()
             return
         end
         dexStorageDebounce = true
-        task.wait()
+        wait()
         pcall(function()
             saveinstance("content//DexStorage.rbxm", DexStorageMain)
         end)
@@ -5362,11 +5373,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            wait()
                         end
-                        task.wait()
+                        wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
             local get_nil_instances = getnilinstances
@@ -5388,11 +5399,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            wait()
                         end
-                        task.wait()
+                        wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
         end
@@ -5645,7 +5656,7 @@ task.spawn(function()
     end)
     while RbxApi == nil do
         RbxApi = GetApiRemote:Invoke()
-        task.wait()
+        wait()
     end
     explorerFilter.FocusLost:connect(function()
         rawUpdateList()
@@ -5662,7 +5673,7 @@ task.spawn(function()
     end)
 end)
 task.spawn(function()
-    task.wait(0.2)
+    wait(0.2)
     -- Services
     local Teams = cloneref(game:GetService("Teams"))
     local Workspace = cloneref(game:GetService("Workspace"))
@@ -5861,7 +5872,7 @@ task.spawn(function()
         OuterBorder = 1,
         OuterBorderColor = Styles.Black
     }
-    task.wait(1)
+    wait(1)
     local Gui = D_E_X
     local PropertiesFrame = Gui:WaitForChild("PropertiesFrame")
     local ExplorerFrame = Gui:WaitForChild("ExplorerPanel")
@@ -7148,13 +7159,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollDown()
-                task.wait(0.2) -- delay before auto scroll
+                wait(0.2) -- delay before auto scroll
                 while scrollEventID == current do
                     Class:ScrollDown()
                     if not Class:CanScrollDown() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollDownFrame.MouseButton1Up:connect(function()
@@ -7173,13 +7184,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollUp()
-                task.wait(0.2)
+                wait(0.2)
                 while scrollEventID == current do
                     Class:ScrollUp()
                     if not Class:CanScrollUp() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollUpFrame.MouseButton1Up:connect(function()
@@ -7200,23 +7211,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if x > ScrollThumbFrame.AbsolutePosition.x then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x < ScrollThumbFrame.AbsolutePosition.x + ScrollThumbFrame.AbsoluteSize.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x > ScrollThumbFrame.AbsolutePosition.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -7235,23 +7246,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if y > ScrollThumbFrame.AbsolutePosition.y then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y < ScrollThumbFrame.AbsolutePosition.y + ScrollThumbFrame.AbsoluteSize.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y > ScrollThumbFrame.AbsolutePosition.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -7869,13 +7880,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollDown()
-                task.wait(0.2) -- delay before auto scroll
+                wait(0.2) -- delay before auto scroll
                 while scrollEventID == current do
                     Class:ScrollDown()
                     if not Class:CanScrollDown() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollDownFrame.MouseButton1Up:connect(function()
@@ -7894,13 +7905,13 @@ task.spawn(function()
                 end)
                 MouseDrag.Parent = GetScreen(ScrollFrame)
                 Class:ScrollUp()
-                task.wait(0.2)
+                wait(0.2)
                 while scrollEventID == current do
                     Class:ScrollUp()
                     if not Class:CanScrollUp() then
                         break
                     end
-                    task.wait()
+                    wait()
                 end
             end)
             ScrollUpFrame.MouseButton1Up:connect(function()
@@ -7921,23 +7932,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if x > ScrollThumbFrame.AbsolutePosition.x then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x < ScrollThumbFrame.AbsolutePosition.x + ScrollThumbFrame.AbsoluteSize.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if x > ScrollThumbFrame.AbsolutePosition.x then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -7956,23 +7967,23 @@ task.spawn(function()
                     MouseDrag.Parent = GetScreen(ScrollFrame)
                     if y > ScrollThumbFrame.AbsolutePosition.y then
                         Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y < ScrollThumbFrame.AbsolutePosition.y + ScrollThumbFrame.AbsoluteSize.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex + Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     else
                         Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                        task.wait(0.2)
+                        wait(0.2)
                         while scrollEventID == current do
                             if y > ScrollThumbFrame.AbsolutePosition.y then
                                 break
                             end
                             Class:ScrollTo(Class.ScrollIndex - Class.VisibleSpace)
-                            task.wait()
+                            wait()
                         end
                     end
                 end)
@@ -8405,7 +8416,7 @@ task.spawn(function()
                 if v == newTab then
                     editingIndex = i
                     buildScript(memoryScripts[i].Source, 0, 0, true)
-                    task.wait(.1);
+                    wait(.1);
                     scrollBar:ScrollTo(1)
                     scrollBar:Update()
                     scrollBarH:ScrollTo(1)
