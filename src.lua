@@ -7,8 +7,6 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/ExProDex-V2/main/hook.lua"))()
-
 if (getgenv().EXPRODEX_LOADED) then return; end
 
 getgenv().EXPRODEX_LOADED = true
@@ -26,6 +24,34 @@ end)
 local cloneref = cloneref or function(ref)
     return ref
 end
+
+pcall(function()
+if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "Arceus V2" then
+
+local OldIndex
+OldIndex = hookmetamethod(game, "__index", function(Self, Index)
+    return OldIndex(Self, Index)
+end)
+
+local OldNewIndex
+OldNewIndex = hookmetamethod(game, "__newindex", function(Self, Index, Value)
+    return OldNewIndex(Self, Index, Value)
+end)
+
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(Self, ...)
+    return OldNamecall(Self, ...)
+end)
+
+local mt = getrawmetatable(game)
+
+local old
+old = hookfunction(mt.__namecall, function(...)
+   return old(...)
+end)
+
+end
+end)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
