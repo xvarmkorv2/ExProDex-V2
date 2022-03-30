@@ -86,7 +86,7 @@ else
 end
 Folder.Name = nCreate()
 local function gethiddengui()
-    return Folder
+    return cloneref(Folder)
 end
 getgenv().gethiddengui = gethiddengui
 
@@ -527,7 +527,7 @@ CreateGui = function()
     Slant.Position = UDim2.new(0, 0, 0, 90)
     Slant.Rotation = 180
     Slant.Size = UDim2.new(0, 30, 0, 30)
-    Slant.Image = "rbxassetid://474172996"
+    Slant.Image = "http://www.roblox.com/asset/?id=474172996"
     Slant.ImageColor3 = Color3.fromRGB(43, 43, 43)
     Main.Name = "Main"
     Main.Parent = SideMenu
@@ -567,7 +567,7 @@ CreateGui = function()
     Icon.Position = UDim2.new(0, 5, 0, 5)
     Icon.Size = UDim2.new(0, 20, 0, 20)
     Icon.ZIndex = 2
-    Icon.Image = "rbxassetid://2998647800"
+    Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
     SaveMap.Name = "SaveMap"
     SaveMap.Parent = SlideFrame
     SaveMap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -587,7 +587,7 @@ CreateGui = function()
     Icon_2.Position = UDim2.new(0, 5, 0, 5)
     Icon_2.Size = UDim2.new(0, 20, 0, 20)
     Icon_2.ZIndex = 2
-    Icon_2.Image = "rbxassetid://59784769"
+    Icon_2.Image = "http://www.roblox.com/asset/?id=59784769"
     Settings.Name = "Settings"
     Settings.Parent = SlideFrame
     Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -607,7 +607,7 @@ CreateGui = function()
     Icon_3.Position = UDim2.new(0, 5, 0, 5)
     Icon_3.Size = UDim2.new(0, 20, 0, 20)
     Icon_3.ZIndex = 2
-    Icon_3.Image = "rbxassetid://4492476121"
+    Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
     Remotes.Name = "Remotes"
     Remotes.Parent = SlideFrame
     Remotes.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -627,7 +627,7 @@ CreateGui = function()
     Icon_4.Position = UDim2.new(0, 5, 0, 5)
     Icon_4.Size = UDim2.new(0, 20, 0, 20)
     Icon_4.ZIndex = 2
-    Icon_4.Image = "rbxassetid://4460063940"
+    Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
     About.Name = "About"
     About.Parent = SlideFrame
     About.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -647,7 +647,7 @@ CreateGui = function()
     Icon_5.Position = UDim2.new(0, 5, 0, 5)
     Icon_5.Size = UDim2.new(0, 20, 0, 20)
     Icon_5.ZIndex = 2
-    Icon_5.Image = "rbxassetid://5832745500"
+    Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
     OpenScriptEditor.Name = "OpenScriptEditor"
     OpenScriptEditor.Parent = SideMenu
     OpenScriptEditor.Active = false
@@ -667,7 +667,7 @@ CreateGui = function()
     Icon_6.Position = UDim2.new(0, 5, 0, 5)
     Icon_6.Size = UDim2.new(0, 20, 0, 20)
     Icon_6.ZIndex = 2
-    Icon_6.Image = "rbxassetid://7360649366"
+    Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
     Icon_6.ImageTransparency = 1
     Toggle_2.Name = "Toggle"
     Toggle_2.Parent = ROBLOX
@@ -1435,7 +1435,7 @@ CreateGui = function()
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.ZIndex = 5
-    ImageLabel.Image = "rbxassetid://969742484"
+    ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
     ImageLabel.ScaleType = Enum.ScaleType.Tile
     ImageLabel.TileSize = UDim2.new(25, 0, 6, 0)
     Title_8.Name = "Title"
@@ -1481,7 +1481,7 @@ CreateGui = function()
     BG.BorderSizePixel = 0
     BG.Size = UDim2.new(1, 0, 1, 0)
     BG.ZIndex = 3
-    BG.Image = "rbxassetid://969742484"
+    BG.Image = "http://www.roblox.com/asset/?id=969742484"
     BG.ScaleType = Enum.ScaleType.Tile
     BG.TileSize = UDim2.new(4, 0, 1, 0)
     Slant_2.Name = "Slant"
@@ -1500,7 +1500,7 @@ CreateGui = function()
     ImageLabel_2.BorderSizePixel = 0
     ImageLabel_2.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel_2.ZIndex = 2
-    ImageLabel_2.Image = "rbxassetid://969742484"
+    ImageLabel_2.Image = "http://www.roblox.com/asset/?id=969742484"
     ImageLabel_2.ScaleType = Enum.ScaleType.Tile
     ImageLabel_2.TileSize = UDim2.new(25, 0, 6, 0)
     SaveMapWindow.Name = "SaveMapWindow"
