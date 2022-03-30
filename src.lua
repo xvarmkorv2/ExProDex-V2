@@ -226,6 +226,16 @@ task.spawn(function()
         end
     end)
 end)
+
+task.spawn(function()
+pcall(function()
+
+getgenv().Protector = loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/syndexpro/main/protector.lua"))
+Protector():ProtectInstance(Folder)
+
+end)
+end)
+
 Folder.Parent = HideInMe
 
 task.spawn(function()
