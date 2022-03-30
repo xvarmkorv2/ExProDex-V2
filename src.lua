@@ -219,6 +219,19 @@ end
 end)
 end)
 
+-- Due to the age of some of our source, I am adding a SelectionChanged bypass just in case. --
+
+pcall(function()
+
+local SelectionService = cloneref(game:GetService("Selection"))
+
+if getconnections then
+for i, v in next, getconnections(SelectionService.SelectionChanged) do
+    v:Disable()
+end
+
+end)
+
 pcall(function()
 if hookmetamethod and getnamecallmethod and newcclosure and checkcaller and not identifyexecutor() == "Arceus V2" then
 
