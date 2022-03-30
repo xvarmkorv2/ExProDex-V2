@@ -13,9 +13,6 @@ getgenv().EXPRODEX_LOADED = true
 
 
 pcall(function()
-if hookmetamethod and checkcaller and getnamecallmethod then 
-
---and not identifyexecutor() == "Arceus V2" then
 
 local OldIndex
 OldIndex = hookmetamethod(game, "__index", function(Self, Index)
@@ -39,7 +36,6 @@ old = hookfunction(mt.__namecall, function(...)
    return old(...)
 end)
 
-end
 end)
 
 pcall(function()
