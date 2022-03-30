@@ -230,8 +230,12 @@ end)
 task.spawn(function()
 pcall(function()
 
+if not identifyexecutor() == "Arceus V2" then
+
 getgenv().Protector = loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/syndexpro/main/protector.lua"))
 Protector():ProtectInstance(Folder)
+
+end 
 
 end)
 end)
