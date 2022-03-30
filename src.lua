@@ -28,7 +28,7 @@ end
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
 pcall(function()
-if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "ArceusX" then
+if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "Arceus V2" then
 
 --- thanks alex uwu ---
 			
@@ -220,7 +220,7 @@ end)
 end)
 
 pcall(function()
-if hookmetamethod and getnamecallmethod and newcclosure and checkcaller and not identifyexecutor() == "ArceusX" then
+if hookmetamethod and getnamecallmethod and newcclosure and checkcaller and not identifyexecutor() == "Arceus V2" then
 
 --- tealingg i love u dad ---
 
