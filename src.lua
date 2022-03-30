@@ -221,15 +221,19 @@ end)
 
 -- Due to the age of some of our source, I am adding a SelectionChanged bypass just in case. --
 
+task.spawn(function()
 pcall(function()
 
 local SelectionService = cloneref(game:GetService("Selection"))
+
+pcall(function() SelectionService:ClearTerrainSelectionHack() end)
 
 if getconnections then
 for i, v in next, getconnections(SelectionService.SelectionChanged) do
     v:Disable()
 end
 
+end)
 end)
 
 pcall(function()
