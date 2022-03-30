@@ -96,6 +96,33 @@ repeat task.wait(0) until (tick() - t) >= int
     return (tick() - t), t
 end
 
+local LogService = cloneref(game:GetService("LogService"))
+local ScriptContext = cloneref(game:GetService("ScriptContext"))
+
+-- devs wont be detecting errors now B) --
+
+task.spawn(function()
+pcall(function()
+
+if getconnections then
+
+for i, v in next, getconnections(LogService.MessageOut) do
+v:Disable()
+end
+
+for i, v in next, getconnections(ScriptContext.Error) do
+v:Disable()
+end
+
+for i, v in next, getconnections(ScriptContext.ErrorDetailed) do
+v:Disable()
+end
+
+end
+
+end)
+end)
+
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
@@ -226,20 +253,6 @@ task.spawn(function()
         end
     end)
 end)
-
-task.spawn(function()
-pcall(function()
-
-if not identifyexecutor() == "Arceus V2" then
-
-getgenv().Protector = loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/syndexpro/main/protector.lua"))
-Protector():ProtectInstance(Folder)
-
-end 
-
-end)
-end)
-
 Folder.Parent = HideInMe
 
 task.spawn(function()
