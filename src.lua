@@ -7,10 +7,11 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/ExProDex-V2/main/hook.lua"))()
+
 if (getgenv().EXPRODEX_LOADED) then return; end
 
 getgenv().EXPRODEX_LOADED = true
-
 
 pcall(function()
 if identifyexecutor() == "ScriptWare" then
