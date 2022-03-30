@@ -1900,6 +1900,7 @@ task.spawn(function()
     local ExplorerButton = SlideFrame:WaitForChild("Explorer")
     local SettingsButton = SlideFrame:WaitForChild("Settings")
     local SelectionBox = cloneref(Instance.new("SelectionBox"))
+    SelectionBox.Name = nCreate()
     SelectionBox.Parent = Gui
     local ExplorerPanel = Gui:WaitForChild("ExplorerPanel")
     local PropertiesFrame = Gui:WaitForChild("PropertiesFrame")
