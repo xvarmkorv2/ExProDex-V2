@@ -4394,10 +4394,25 @@ task.spawn(function()
         local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
         local extra = (sObj == RunningScriptsStorageMain and 'Refresh Instances' or nil)
         -- local extra2 = (sObj == nilStorageMain and 'Refresh Instances' or nil)
-        currentRightClickMenu = CreateRightClickMenu({'Cut', 'Copy', 'Paste Into', 'Duplicate', 'Delete', 'Group',
-                                                      'Ungroup', 'Select Children', 'Teleport To', -- 'Track',
-        'Insert Part', 'Insert Object', 'View Script', 'Save Script', 'Dump Function', 'Save Instance', 'Call Function',
-                                                      'Call Remote', -- 'Try Get Values',
+        currentRightClickMenu = CreateRightClickMenu({'Cut',
+					'Copy',
+					'Paste Into',
+					'Duplicate',
+					'Delete',
+					'Group',
+                                        'Ungroup',
+					'Select Children',
+					'Teleport To',
+					-- 'Track,
+					'Insert Part',
+					'Insert Object',
+					'View Script',
+					'Save Script',
+					--'Dump Function',
+					'Save Instance',
+					'Call Function',
+                                        'Call Remote',
+					-- 'Try Get Values',
         extra -- extra2
         }, "", false, function(option)
             if option == "Cut" then
@@ -5435,6 +5450,7 @@ task.spawn(function()
                                         if instuns:IsA("LocalScript") then
                                             instuns.Disabled = true
                                         end
+					task.wait()
                                     end)
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
@@ -5446,6 +5462,7 @@ task.spawn(function()
                     end
                     task.wait(60)
                 end
+		task.wait()
             end)
             local get_nil_instances = getnilinstances
             local currentTable = get_nil_instances()
@@ -5462,6 +5479,7 @@ task.spawn(function()
                                         if instuns:IsA("LocalScript") then
                                             instuns.Disabled = true
                                         end
+				        task.wait()
                                     end)
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
@@ -5473,7 +5491,9 @@ task.spawn(function()
                     end
                     task.wait(60)
                 end
+		task.wait()
             end)
+	    task.wait()
         end
         local function get(o)
             return o:GetDescendants()
