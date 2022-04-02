@@ -221,8 +221,6 @@ task.spawn(function()
 
 		local SelectionService = cloneref(game:GetService("Selection"))
 
-		pcall(function() SelectionService:ClearTerrainSelectionHack() end)
-
 		if getconnections then
 			for i, v in next, getconnections(SelectionService.SelectionChanged) do
 				v:Disable()
