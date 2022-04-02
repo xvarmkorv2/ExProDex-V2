@@ -25,7 +25,67 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+pcall(function()
+if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "Arceus V2" then
+
+local OldIndex
+OldIndex = hookmetamethod(game, "__index", function(Self, Index)
+    return OldIndex(Self, Index)
+end)
+
+local OldNewIndex
+OldNewIndex = hookmetamethod(game, "__newindex", function(Self, Index, Value)
+    return OldNewIndex(Self, Index, Value)
+end)
+
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(Self, ...)
+    return OldNamecall(Self, ...)
+end)
+
+local mt = getrawmetatable(game)
+
+local old
+old = hookfunction(mt.__namecall, function(...)
+   return old(...)
+end)
+
+end
+end)
+
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
+
+pcall(function()
+if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "Arceus V2" then
+
+--- thanks alex uwu ---
+			
+local _GetService = game.GetService
+
+local function CloneService(self, service)
+    return cloneref(_GetService(self, service))
+end
+
+
+local old_index4;
+old_index4 = hookmetamethod(game, "__index", function(self, index)
+    if (checkcaller() and self == game and index:lower() == "getservice") then
+        return CloneService
+    end
+    return old_index4(self, index);
+end);
+
+local old_namecall4;
+old_namecall4 = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod();
+    if (checkcaller() and self == game and method:lower() == "getservice") then
+        return CloneService(game, ...)
+    end
+    return old_namecall4(self, ...);
+end);	
+end
+
+end)
 
 local wait = function(int)
 if not int then
@@ -44,7 +104,7 @@ local ScriptContext = cloneref(game:GetService("ScriptContext"))
 task.spawn(function()
 pcall(function()
 
-if getconnections and not identifyexecutor() == "ScriptWare" then
+if getconnections then
 
 for i, v in next, getconnections(LogService.MessageOut) do
 v:Disable()
@@ -221,14 +281,56 @@ task.spawn(function()
 
 		local SelectionService = cloneref(game:GetService("Selection"))
 
-		if getconnections and not identifyexecutor() == "ScriptWare" then
+		pcall(function() SelectionService:ClearTerrainSelectionHack() end)
+
+		if getconnections then
 			for i, v in next, getconnections(SelectionService.SelectionChanged) do
 				v:Disable()
 			end
 
 		end
 	end)
-end)	
+end)
+
+pcall(function()
+if hookmetamethod and getnamecallmethod and newcclosure and checkcaller and not identifyexecutor() == "Arceus V2" then
+
+--- tealingg i love u dad ---
+
+--- FindService + other shit patch ---
+			
+local old_namecall_420;
+old_namecall_420 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindService" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420(...);
+end));
+
+local old_namecall_420_69;
+old_namecall_420_69 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChild" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420_69(...);
+end));
+
+local old_namecall_420_69_21;
+old_namecall_420_69_21 = hookmetamethod(game, "__namecall", newcclosure(function(...)
+    local self = ...;
+    local args = {select(2, ...)};
+    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChildOfClass" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
+        return nil;
+    end
+    return old_namecall_420_69_21(...);
+end));
+end
+end)		
+
 
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
@@ -4292,25 +4394,10 @@ task.spawn(function()
         local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
         local extra = (sObj == RunningScriptsStorageMain and 'Refresh Instances' or nil)
         -- local extra2 = (sObj == nilStorageMain and 'Refresh Instances' or nil)
-        currentRightClickMenu = CreateRightClickMenu({'Cut',
-					'Copy',
-					'Paste Into',
-					'Duplicate',
-					'Delete',
-					'Group',
-                                        'Ungroup',
-					'Select Children',
-					'Teleport To',
-					-- 'Track,
-					'Insert Part',
-					'Insert Object',
-					'View Script',
-					'Save Script',
-					--'Dump Function',
-					'Save Instance',
-					'Call Function',
-                                        'Call Remote',
-					-- 'Try Get Values',
+        currentRightClickMenu = CreateRightClickMenu({'Cut', 'Copy', 'Paste Into', 'Duplicate', 'Delete', 'Group',
+                                                      'Ungroup', 'Select Children', 'Teleport To', -- 'Track',
+        'Insert Part', 'Insert Object', 'View Script', 'Save Script', 'Dump Function', 'Save Instance', 'Call Function',
+                                                      'Call Remote', -- 'Try Get Values',
         extra -- extra2
         }, "", false, function(option)
             if option == "Cut" then
@@ -5352,11 +5439,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            wait()
                         end
-                        task.wait()
+                        wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
             local get_nil_instances = getnilinstances
@@ -5378,11 +5465,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            wait()
                         end
-                        task.wait()
+                        wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
         end
