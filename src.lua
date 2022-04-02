@@ -37,6 +37,8 @@ repeat task.wait(0) until (tick() - t) >= int
     return (tick() - t), t
 end
 
+local Players = cloneref(game:GetService("Players"))
+
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local RobloxGui = cloneref(CoreGui:WaitForChild("RobloxGui"))
 local Folder = cloneref(Instance.new("Folder"))
@@ -172,14 +174,14 @@ Folder.Parent = HideInMe
 task.spawn(function()
 pcall(function()
 if getconnections then
-for i, v in ipairs(game:GetChildren()) do
+for i, v in ipairs(cloneref(game):GetChildren()) do
 	if v.Name == "Instance" then
 		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
 		v:Disable()
         end
     end
 end          
-for i, v in ipairs(game:GetChildren()) do
+for i, v in ipairs(cloneref(game):GetChildren()) do
     if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
     v.Name = v.ClassName
     end
@@ -1683,17 +1685,17 @@ CreateGui = function()
     Desc_6.TextColor3 = Color3.fromRGB(255, 255, 255)
     Desc_6.TextSize = 24
     Desc_6.TextWrapped = true
-    local NewGuiPart153 = Instance.new("BindableFunction")
-    local NewGuiPart154 = Instance.new("BindableFunction")
-    local NewGuiPart155 = Instance.new("BindableFunction")
-    local NewGuiPart156 = Instance.new("BindableFunction")
-    local NewGuiPart157 = Instance.new("BindableEvent")
-    local NewGuiPart158 = Instance.new("BindableFunction")
-    local NewGuiPart159 = Instance.new("BindableFunction")
-    local NewGuiPart160 = Instance.new("BindableEvent")
-    local NewGuiPart161 = Instance.new("BindableFunction")
-    local NewGuiPart162 = Instance.new("BindableFunction")
-    local NewGuiPart163 = Instance.new("BindableEvent")
+    local NewGuiPart153 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart154 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart155 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart156 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart157 = cloneref(Instance.new("BindableEvent"))
+    local NewGuiPart158 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart159 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart160 = cloneref(Instance.new("BindableEvent"))
+    local NewGuiPart161 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart162 = cloneref(Instance.new("BindableFunction"))
+    local NewGuiPart163 = cloneref(Instance.new("BindableEvent"))
     NewGuiPart158.Name = "GetApi"
     NewGuiPart158.Parent = PropertiesFrame
     NewGuiPart158.Archivable = true
@@ -2000,7 +2002,7 @@ task.spawn(function()
                     return saveinstance()
                     end
         local copyWhat = {}
-        local copyGroup = Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage"))) --- kaid meow
+        local copyGroup = cloneref(Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage")))) --- kaid meow
         local copyScripts = SaveMapSettings.SaveScripts
         if copyScripts then
             saveinstance {
@@ -2332,7 +2334,7 @@ task.spawn(function()
     function Create(ty, data)
         local obj
         if type(ty) == 'string' then
-            obj = Instance.new(ty)
+            obj = cloneref(Instance.new(ty))
         else
             obj = ty
         end
@@ -3040,9 +3042,9 @@ task.spawn(function()
         DexStorageEnabled = true
     end
     if DexStorageEnabled then
-        DexStorage = Instance.new("Folder")
+        DexStorage = cloneref(Instance.new("Folder"))
         DexStorage.Name = "Dex"
-        DexStorageMain = Instance.new("Folder", DexStorage)
+        DexStorageMain = cloneref(Instance.new("Folder", DexStorage))
         DexStorageMain.Name = "DexStorage"
     end
     local RunningScriptsStorage
@@ -3052,9 +3054,9 @@ task.spawn(function()
         RunningScriptsStorageEnabled = true
     end
     if RunningScriptsStorageEnabled then
-        RunningScriptsStorage = Instance.new("Folder")
+        RunningScriptsStorage = cloneref(Instance.new("Folder"))
         RunningScriptsStorage.Name = "Dex Internal Storage"
-        RunningScriptsStorageMain = Instance.new("Folder", RunningScriptsStorage)
+        RunningScriptsStorageMain = cloneref(Instance.new("Folder", RunningScriptsStorage))
         RunningScriptsStorageMain.Name = "Running Scripts & Nil Instances"
     end
     local nilStorage
@@ -3062,9 +3064,9 @@ task.spawn(function()
     local nilStorageEnabled
     nilStorageEnabled = false -- Currently unused
     if nilStorageEnabled then
-        nilStorage = Instance.new("Folder")
+        nilStorage = cloneref(Instance.new("Folder"))
         nilStorage.Name = "Dex Internal Storage"
-        nilStorageMain = Instance.new("Folder", nilStorage)
+        nilStorageMain = cloneref(Instance.new("Folder", nilStorage))
         nilStorageMain.Name = "Instances in Nil"
     end
     local UpvalueStorage
@@ -3075,22 +3077,22 @@ task.spawn(function()
         UpvalueStorageEnabled = true
     end
     if UpvalueStorageEnabled then
-        UpvalueStorage = Instance.new('Folder')
+        UpvalueStorage = cloneref(Instance.new('Folder'))
         UpvalueStorage.Name = 'Upvalue Storage'
-        UpvalueStorageVariables = Instance.new("Folder", UpvalueStorage)
+        UpvalueStorageVariables = cloneref(Instance.new("Folder", UpvalueStorage))
         UpvalueStorageVariables.Name = "Upvalue Variables"
-        UpvalueStorageFunctions = Instance.new("Folder", UpvalueStorage)
+        UpvalueStorageFunctions = cloneref(Instance.new("Folder", UpvalueStorage))
         UpvalueStorageFunctions.Name = "Upvalue Functions"
         for i, v in pairs(vars) do
             pcall(function()
-                local n = Instance.new('StringValue', UpvalueStorageVariables)
+                local n = cloneref(Instance.new('StringValue', UpvalueStorageVariables))
                 n.Name = tostring(i);
                 n.Value = tostring(v);
             end)
         end
         for i, v in pairs(funcs) do
             pcall(function()
-                local n = Instance.new('StringValue', UpvalueStorageFunctions)
+                local n = cloneref(Instance.new('StringValue', UpvalueStorageFunctions))
                 n.Name = tostring(i);
                 n.Value = tostring(v);
             end)
@@ -3192,7 +3194,7 @@ task.spawn(function()
     local RbxApi
     function ClassCanCreate(IName)
         local success, err = pcall(function()
-            Instance.new(IName)
+            cloneref(Instance.new(IName))
         end)
         if err then
             return false
@@ -3428,7 +3430,7 @@ task.spawn(function()
             local list = SelectionVar():Get()
             for i = 1, #list do
                 pcall(function()
-                    Instance.new(option, list[i])
+                    cloneref(Instance.new(option, list[i]))
                 end)
             end
             -- print(option.Name .. " selected to be called. Function caller being added soon, please wait!")
@@ -3572,7 +3574,7 @@ task.spawn(function()
         if gui == nil then
             return false
         end
-        local plrMouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local plrMouse = Players.LocalPlayer:GetMouse()
         local guiPosition = gui.AbsolutePosition
         local guiSize = gui.AbsoluteSize
         if plrMouse.X >= guiPosition.x and plrMouse.X <= guiPosition.x + guiSize.x and plrMouse.Y >= guiPosition.y and
@@ -4247,7 +4249,7 @@ task.spawn(function()
         end
     end
     function rightClickMenu(sObj)
-        local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local mouse = Players.LocalPlayer:GetMouse()
         local extra = (sObj == RunningScriptsStorageMain and 'Refresh Instances' or nil)
         -- local extra2 = (sObj == nilStorageMain and 'Refresh Instances' or nil)
         currentRightClickMenu = CreateRightClickMenu({'Cut', 'Copy', 'Paste Into', 'Duplicate', 'Delete', 'Group',
@@ -4313,7 +4315,7 @@ task.spawn(function()
                 if not Option.Modifiable then
                     return
                 end
-                local newModel = Instance.new("Model")
+                local newModel = cloneref(Instance.new("Model"))
                 local list = Selection:Get()
                 newModel.Parent = Selection.List[1].Parent or workspace
                 for i = 1, #list do
@@ -4362,7 +4364,7 @@ task.spawn(function()
                 for i = 1, #list do
                     if list[i]:IsA("BasePart") then
                         pcall(function()
-                            game:GetService 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = list[i].CFrame
+                            Players.LocalPlayer.Character.HumanoidRootPart.CFrame = list[i].CFrame
                         end)
                         break
                     end
@@ -4375,9 +4377,9 @@ task.spawn(function()
                 local list = Selection:Get()
                 for i = 1, #list do
                     pcall(function()
-                        local newPart = Instance.new("Part")
+                        local newPart = cloneref(Instance.new("Part"))
                         newPart.Parent = list[i]
-                        newPart.CFrame = CFrame.new(game:GetService 'Players'.LocalPlayer.Character.Head.Position) +
+                        newPart.CFrame = CFrame.new(Players.LocalPlayer.Character.Head.Position) +
                                              Vector3.new(0, 3, 0)
                         table.insert(insertedParts, newPart)
                     end)
@@ -4449,7 +4451,7 @@ task.spawn(function()
                                 local T = var;
                                 -- table.sort(T, cmp)
                                 for i, v in pairs(T) do
-                                    local n = Instance.new('StringValue', sObj);
+                                    local n = cloneref(Instance.new('StringValue', sObj));
                                     n.Name = tostring(i);
                                     local a, b = pcall(function()
                                         return tostring(v);
@@ -4465,7 +4467,7 @@ task.spawn(function()
                                 local T = debug.getupvalues(var);
                                 -- table.sort(T, cmp)
                                 for i, v in pairs(T) do
-                                    local n = Instance.new('StringValue', sObj);
+                                    local n = cloneref(Instance.new('StringValue', sObj));
                                     n.Name = tostring(i);
                                     local a, b = pcall(function()
                                         return tostring(v);
@@ -4485,7 +4487,7 @@ task.spawn(function()
                             local T = getsenv(sObj);
                             for i, v in pairs(T) do
                                 if not sObj:FindFirstChild(tostring(i)) then
-                                    local n = Instance.new('StringValue', sObj);
+                                    local n = cloneref(Instance.new('StringValue', sObj));
                                     n.Name = tostring(i);
                                     local a, b = pcall(function()
                                         return tostring(v);
@@ -4495,7 +4497,7 @@ task.spawn(function()
                                         funcs[i] = v;
                                         for fn, p in pairs(debug.getupvalues(v)) do
                                             if not sObj:FindFirstChild(tostring(fn)) then
-                                                local n = Instance.new('StringValue', sObj);
+                                                local n = cloneref(Instance.new('StringValue', sObj));
                                                 n.Name = tostring(fn);
                                                 local a, b = pcall(function()
                                                     return tostring(p);
@@ -4520,7 +4522,7 @@ task.spawn(function()
                                     local T = debug.getupvalues(v);
                                     for i, v in pairs(T) do
                                         if not sObj:FindFirstChild(tostring(i)) then
-                                            local n = Instance.new('StringValue', sObj);
+                                            local n = cloneref(Instance.new('StringValue', sObj));
                                             n.Name = tostring(i);
                                             local a, b = pcall(function()
                                                 return tostring(v);
@@ -4529,7 +4531,7 @@ task.spawn(function()
                                             if (type(v) == 'function') then
                                                 for _, p in pairs(debug.getupvalues(v)) do
                                                     if not sObj:FindFirstChild(tostring(_)) then
-                                                        local n = Instance.new('StringValue', sObj);
+                                                        local n = cloneref(Instance.new('StringValue', sObj));
                                                         n.Name = tostring(_);
                                                         local a, b = pcall(function()
                                                             return tostring(p);
@@ -5160,7 +5162,7 @@ task.spawn(function()
         end
     end
     local function makeObject(obj, par)
-        local newObject = Instance.new(obj.ClassName)
+        local newObject = cloneref(Instance.new(obj.ClassName))
         for i, v in pairs(obj.Properties) do
             ypcall(function()
                 local newProp
@@ -5279,7 +5281,7 @@ task.spawn(function()
             local get_scripts = getscripts
             local currentTable2 = get_scripts()
             task.spawn(function()
-                --while true do
+                while true do
                     if #currentTable2 ~= #get_scripts() then
                         currentTable2 = get_scripts()
                         -- RunningScriptsStorageMain:ClearAllChildren()
@@ -5299,16 +5301,16 @@ task.spawn(function()
                         end
                         --task.wait()
                     end
-                    --wait(60)
-                --end
+                    wait(60)
+                end
             end)
             local get_nil_instances = getnilinstances
             local currentTable = get_nil_instances()
             task.spawn(function()
-                --while true do
+                while true do
                     if #currentTable ~= #get_nil_instances() then
                         currentTable = get_nil_instances()
-                        RunningScriptsStorageMain:ClearAllChildren()
+                        -- RunningScriptsStorageMain:ClearAllChildren()
                         for i, v in pairs(get_nil_instances()) do
                             if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
                                 pcall(function()
@@ -5325,8 +5327,8 @@ task.spawn(function()
                         end
                         --task.wait()
                     end
-                    --wait(60)
-                --end
+                    wait(60)
+                end
             end)
         end
         local function get(o)
@@ -5588,7 +5590,7 @@ task.spawn(function()
         local list = SelectionVar():Get()
         for i = 1, #list do
             pcall(function()
-                Instance.new(option, list[i])
+                cloneref(Instance.new(option, list[i]))
             end)
         end
         DestroyRightClick()
@@ -5649,9 +5651,9 @@ task.spawn(function()
     local apiChunks = splitStringIntoChunks(jsonToParse)
     function getRbxApi()
         -- Services
-        local HttpService = game:GetService("HttpService")
-        -- local ServerStorage = game:GetService("ServerStorage") -- Causes vulnerabilities
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local HttpService = cloneref(game:GetService("HttpService"))
+        -- local ServerStorage = cloneref(game:GetService("ServerStorage")) -- Causes vulnerabilities
+        local ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
         -- Remotes
         -- local Remotes = ReplicatedStorage:WaitForChild("OnlineStudio"):WaitForChild("Remotes")
         -- local GetApiJsonFunction = Remotes:WaitForChild("GetApiJson")
@@ -6011,7 +6013,7 @@ task.spawn(function()
     local Icon
     do
         local iconMap = 'http://www.roblox.com/asset/?id=' .. MAP_ID
-        game:GetService('ContentProvider'):Preload(iconMap)
+        cloneref(game:GetService('ContentProvider')):Preload(iconMap)
         local iconDehash
         do
             -- 14 x 14, 0-based input, 0-based output
@@ -6268,7 +6270,7 @@ task.spawn(function()
         local function toggle()
             colorPalette.Visible = not colorPalette.Visible
         end
-        local colorBox = Instance.new("TextButton", frame)
+        local colorBox = cloneref(Instance.new("TextButton", frame))
         colorBox.Position = UDim2.new(0, Styles.Margin, 0, Styles.Margin)
         colorBox.Size = UDim2.new(0, BrickColors.BoxSize, 0, BrickColors.BoxSize)
         colorBox.Text = ""
@@ -7196,7 +7198,7 @@ task.spawn(function()
                     local drag_con
                     local up_con
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not cloneref(game:GetService("UserInputService")):IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -7231,7 +7233,7 @@ task.spawn(function()
                     local drag_con
                     local up_con
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not cloneref(game:GetService("UserInputService")):IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -7394,8 +7396,8 @@ task.spawn(function()
         x = 0,
         y = 0
     }
-    local userInput = game:GetService("UserInputService")
-    local mouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+    local userInput = cloneref(game:GetService("UserInputService"))
+    local mouse = Players.LocalPlayer:GetMouse()
     local topBar = top:WaitForChild("TopBar")
     local scriptBar = topBar:WaitForChild("ScriptBar")
     local scriptBarLeft = topBar:WaitForChild("ScriptBarLeft")
@@ -7917,7 +7919,7 @@ task.spawn(function()
                     local drag_con
                     local up_con
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not cloneref(game:GetService("UserInputService")):IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -7952,7 +7954,7 @@ task.spawn(function()
                     local drag_con
                     local up_con
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
-                        if not game:GetService 'UserInputService':IsMouseButtonPressed 'MouseButton1' then
+                        if not cloneref(game:GetService("UserInputService")):IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
                             MouseDrag.Parent = nil
                             ResetButtonColor(ScrollThumbFrame)
@@ -8152,7 +8154,7 @@ task.spawn(function()
         if gui == nil then
             return false
         end
-        local plrMouse = game:GetService 'Players'.LocalPlayer:GetMouse()
+        local plrMouse = Players.LocalPlayer:GetMouse()
         local guiPosition = gui.AbsolutePosition
         local guiSize = gui.AbsoluteSize
         if plrMouse.X >= guiPosition.x and plrMouse.X <= guiPosition.x + guiSize.x and plrMouse.Y >= guiPosition.y and
