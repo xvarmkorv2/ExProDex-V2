@@ -44,7 +44,7 @@ local ScriptContext = cloneref(game:GetService("ScriptContext"))
 task.spawn(function()
 pcall(function()
 
-if getconnections then
+if getconnections and not identifyexecutor() == "ScriptWare" then
 
 for i, v in next, getconnections(LogService.MessageOut) do
 v:Disable()
@@ -221,7 +221,7 @@ task.spawn(function()
 
 		local SelectionService = cloneref(game:GetService("Selection"))
 
-		if getconnections then
+		if getconnections and not identifyexecutor() == "ScriptWare" then
 			for i, v in next, getconnections(SelectionService.SelectionChanged) do
 				v:Disable()
 			end
@@ -5348,11 +5348,9 @@ task.spawn(function()
                                         if instuns:IsA("LocalScript") then
                                             instuns.Disabled = true
                                         end
-					task.wait()
                                     end)
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
-				task.wait()
                             end
                             task.wait()
                         end
@@ -5360,7 +5358,6 @@ task.spawn(function()
                     end
                     task.wait(60)
                 end
-		task.wait()
             end)
             local get_nil_instances = getnilinstances
             local currentTable = get_nil_instances()
@@ -5377,11 +5374,9 @@ task.spawn(function()
                                         if instuns:IsA("LocalScript") then
                                             instuns.Disabled = true
                                         end
-				        task.wait()
                                     end)
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
-				task.wait()
                             end
                             task.wait()
                         end
@@ -5389,9 +5384,7 @@ task.spawn(function()
                     end
                     task.wait(60)
                 end
-		task.wait()
             end)
-	    task.wait()
         end
         local function get(o)
             return o:GetDescendants()
