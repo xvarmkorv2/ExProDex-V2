@@ -55,38 +55,6 @@ end)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
-pcall(function()
-if hookmetamethod and checkcaller and getnamecallmethod and not identifyexecutor() == "Arceus V2" then
-
---- thanks alex uwu ---
-			
-local _GetService = game.GetService
-
-local function CloneService(self, service)
-    return cloneref(_GetService(self, service))
-end
-
-
-local old_index4;
-old_index4 = hookmetamethod(game, "__index", function(self, index)
-    if (checkcaller() and self == game and index:lower() == "getservice") then
-        return CloneService
-    end
-    return old_index4(self, index);
-end);
-
-local old_namecall4;
-old_namecall4 = hookmetamethod(game, "__namecall", function(self, ...)
-    local method = getnamecallmethod();
-    if (checkcaller() and self == game and method:lower() == "getservice") then
-        return CloneService(game, ...)
-    end
-    return old_namecall4(self, ...);
-end);	
-end
-
-end)
-
 local wait = function(int)
 if not int then
    int = 0
@@ -290,47 +258,7 @@ task.spawn(function()
 
 		end
 	end)
-end)
-
-pcall(function()
-if hookmetamethod and getnamecallmethod and newcclosure and checkcaller and not identifyexecutor() == "Arceus V2" then
-
---- tealingg i love u dad ---
-
---- FindService + other shit patch ---
-			
-local old_namecall_420;
-old_namecall_420 = hookmetamethod(game, "__namecall", newcclosure(function(...)
-    local self = ...;
-    local args = {select(2, ...)};
-    if (not checkcaller() and self == game and getnamecallmethod() == "FindService" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
-        return nil;
-    end
-    return old_namecall_420(...);
-end));
-
-local old_namecall_420_69;
-old_namecall_420_69 = hookmetamethod(game, "__namecall", newcclosure(function(...)
-    local self = ...;
-    local args = {select(2, ...)};
-    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChild" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
-        return nil;
-    end
-    return old_namecall_420_69(...);
-end));
-
-local old_namecall_420_69_21;
-old_namecall_420_69_21 = hookmetamethod(game, "__namecall", newcclosure(function(...)
-    local self = ...;
-    local args = {select(2, ...)};
-    if (not checkcaller() and self == game and getnamecallmethod() == "FindFirstChildOfClass" and (args[1] == "VirtualUser" or args[1] == "ReplicatedScriptService" or args[1] == "ServerStorage" or args[1] == "ServerScriptService" or args[1] == "VirtualInputManager")) then
-        return nil;
-    end
-    return old_namecall_420_69_21(...);
-end));
-end
-end)		
-
+end)	
 
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
