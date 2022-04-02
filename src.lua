@@ -5295,9 +5295,9 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            wait()
+                            task.wait()
                         end
-                        wait()
+                        task.wait()
                     end
                     wait(60)
                 end
@@ -5321,9 +5321,9 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            wait()
+                            task.wait()
                         end
-                        wait()
+                        task.wait()
                     end
                     wait(60)
                 end
