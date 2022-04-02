@@ -21,7 +21,7 @@ getgenv().decompile = decomp
 end
 end)
 
-local cloneref = function(ref)
+local cloneref = cloneref or function(ref)
     return ref
 end
 
