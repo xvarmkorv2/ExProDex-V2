@@ -190,7 +190,30 @@ end
 end)
 end)
 
+local LogService = cloneref(game:GetService("LogService"))
+local ScriptContext = cloneref(game:GetService("ScriptContext"))
 
+task.spawn()
+pcall(function()
+if getconnections then	
+
+for i, v in next, getconnections(LogService.MessageOut) do
+v:Disable()
+end
+			
+for i, v in next, getconnections(ScriptContext.Error) do
+v:Disable()
+end
+		
+for i, v in next, getconnections(ScriptContext.ErrorDetailed) do
+v:Disable()
+end
+
+end
+end)
+end)
+
+			
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
 ContentProv:Preload("http://www.roblox.com/asset/?id=474172996")
