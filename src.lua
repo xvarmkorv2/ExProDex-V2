@@ -5279,7 +5279,7 @@ task.spawn(function()
             local get_scripts = getscripts
             local currentTable2 = get_scripts()
             task.spawn(function()
-                while true do
+                --while true do
                     if #currentTable2 ~= #get_scripts() then
                         currentTable2 = get_scripts()
                         -- RunningScriptsStorageMain:ClearAllChildren()
@@ -5299,16 +5299,16 @@ task.spawn(function()
                         end
                         --task.wait()
                     end
-                    wait(60)
-                end
+                    --wait(60)
+                --end
             end)
             local get_nil_instances = getnilinstances
             local currentTable = get_nil_instances()
             task.spawn(function()
-                while true do
+                --while true do
                     if #currentTable ~= #get_nil_instances() then
                         currentTable = get_nil_instances()
-                        -- RunningScriptsStorageMain:ClearAllChildren()
+                        RunningScriptsStorageMain:ClearAllChildren()
                         for i, v in pairs(get_nil_instances()) do
                             if v ~= RunningScriptsStorage and v ~= DexStorage and v ~= UpvalueStorage then
                                 pcall(function()
@@ -5325,8 +5325,8 @@ task.spawn(function()
                         end
                         --task.wait()
                     end
-                    wait(60)
-                end
+                    --wait(60)
+                --end
             end)
         end
         local function get(o)
