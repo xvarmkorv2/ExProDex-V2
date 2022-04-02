@@ -1733,7 +1733,6 @@ local D_E_X = CreateGui()
 pcall(function()
     if syn and syn.protect_gui then
         syn.protect_gui(D_E_X)
-        wait()
     end
 end)
 local CoreGui2
