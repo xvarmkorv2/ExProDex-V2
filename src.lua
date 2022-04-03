@@ -5338,11 +5338,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            --task.wait()
                         end
-                        task.wait()
+                        --task.wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
             local get_nil_instances = getnilinstances
@@ -5364,11 +5364,11 @@ task.spawn(function()
                                     instuns.Parent = RunningScriptsStorageMain
                                 end)
                             end
-                            task.wait()
+                            --task.wait()
                         end
-                        task.wait()
+                        --task.wait()
                     end
-                    task.wait(60)
+                    wait(60)
                 end
             end)
         end
