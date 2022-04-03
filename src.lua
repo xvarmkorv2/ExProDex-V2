@@ -1882,12 +1882,12 @@ local function LoadScripts(Script)
         end)
     end
     for i,v in pairs(Script:GetDescendants()) do
-    LoadScripts(v)
+    pcall(LoadScripts, v)
     end
 end
-LoadScripts(Obj)
+pcall(LoadScripts, Obj)
 end
-Load(D_E_X)
+pcall(Load, D_E_X)
 
 
 task.spawn(function()
