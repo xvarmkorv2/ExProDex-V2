@@ -11,6 +11,17 @@ if (getgenv().EXPRODEX_LOADED) then return; end
 
 getgenv().EXPRODEX_LOADED = true
 
+local customasset
+
+pcall(function() 
+if getgenv then 
+customasset = getsynasset or getcustomasset
+getgenv().customasset = customasset
+else
+customasset = getsynasset or getcustomasset
+end
+end)
+
 pcall(function()
 if identifyexecutor() == "ScriptWare" then
 local function decomp(a)
@@ -519,8 +530,8 @@ CreateGui = function()
     Slant.Position = UDim2.new(0, 0, 0, 90)
     Slant.Rotation = 180
     Slant.Size = UDim2.new(0, 30, 0, 30)
-    if syn and syn.protect_gui then
-    Slant.Image = getsynasset("474172996.png")
+    if customasset then
+    Slant.Image = customasset("474172996.png")
     else
     Slant.Image = "http://www.roblox.com/asset/?id=474172996"
     end
@@ -563,8 +574,8 @@ CreateGui = function()
     Icon.Position = UDim2.new(0, 5, 0, 5)
     Icon.Size = UDim2.new(0, 20, 0, 20)
     Icon.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon.Image = getsynasset("2998647800.png")
+    if customasset then
+    Icon.Image = customasset("2998647800.png")
     else
     Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
     end
@@ -587,8 +598,8 @@ CreateGui = function()
     Icon_2.Position = UDim2.new(0, 5, 0, 5)
     Icon_2.Size = UDim2.new(0, 20, 0, 20)
     Icon_2.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon_2.Image = getsynasset("59784769.png")
+    if customasset then
+    Icon_2.Image = customasset("59784769.png")
     else
     Icon_2.Image = "http://www.roblox.com/asset/?id=59784769"
     end
@@ -611,8 +622,8 @@ CreateGui = function()
     Icon_3.Position = UDim2.new(0, 5, 0, 5)
     Icon_3.Size = UDim2.new(0, 20, 0, 20)
     Icon_3.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon_3.Image = getsynasset("4492476121.png")
+    if customasset then
+    Icon_3.Image = customasset("4492476121.png")
     else
     Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
     end
@@ -635,8 +646,8 @@ CreateGui = function()
     Icon_4.Position = UDim2.new(0, 5, 0, 5)
     Icon_4.Size = UDim2.new(0, 20, 0, 20)
     Icon_4.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon_4.Image = getsynasset("4460063940.png")
+    if customasset then
+    Icon_4.Image = customasset("4460063940.png")
     else
     Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
     end
@@ -659,8 +670,8 @@ CreateGui = function()
     Icon_5.Position = UDim2.new(0, 5, 0, 5)
     Icon_5.Size = UDim2.new(0, 20, 0, 20)
     Icon_5.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon_5.Image = getsynasset("5832745500.png")
+    if customasset then
+    Icon_5.Image = customasset("5832745500.png")
     else
     Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
     end
@@ -683,8 +694,8 @@ CreateGui = function()
     Icon_6.Position = UDim2.new(0, 5, 0, 5)
     Icon_6.Size = UDim2.new(0, 20, 0, 20)
     Icon_6.ZIndex = 2
-    if syn and syn.protect_gui then
-    Icon_6.Image = getsynasset("7360649366.png")
+    if customasset then
+    Icon_6.Image = customasset("7360649366.png")
     else
     Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
     end
@@ -1455,8 +1466,8 @@ CreateGui = function()
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.ZIndex = 5
-    if syn and syn.protect_gui then
-    ImageLabel.Image = getsynasset("969742484.png")
+    if customasset then
+    ImageLabel.Image = customasset("969742484.png")
     else
     ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
     end
@@ -1505,8 +1516,8 @@ CreateGui = function()
     BG.BorderSizePixel = 0
     BG.Size = UDim2.new(1, 0, 1, 0)
     BG.ZIndex = 3
-    if syn and syn.protect_gui then
-    BG.Image = getsynasset("969742484.png")
+    if customasset then
+    BG.Image = customasset("969742484.png")
     else
     BG.Image = "http://www.roblox.com/asset/?id=969742484"
     end
