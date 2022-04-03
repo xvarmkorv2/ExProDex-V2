@@ -1851,6 +1851,45 @@ else
     CoreGui2 = cloneref(game:GetService("CoreGui"):WaitForChild("RobloxGui"))
 end
 D_E_X.Parent = cloneref(CoreGui2)
+
+local function Load(Obj, Url)
+local function GiveOwnGlobals(Func, Script)
+    local Fenv = {}
+    local RealFenv = {script = Script}
+    local FenvMt = {}
+    FenvMt.__index = function(a,b)
+        if RealFenv[b] == nil then
+            return getgenv()[b]
+        else
+            return RealFenv[b]
+        end
+    end
+    FenvMt.__newindex = function(a, b, c)
+        if RealFenv[b] == nil then
+            getgenv()[b] = c
+        else
+            RealFenv[b] = c
+        end
+    end
+    setmetatable(Fenv, FenvMt)
+    setfenv(Func, Fenv)
+    return Func
+end
+local function LoadScripts(Script)
+    if Script.ClassName == "Script" or Script.ClassName == "LocalScript" or Script.ClassName == "ModuleScript" then
+       task.spawn(function()
+            GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
+        end)
+    end
+    for i,v in pairs(Script:GetDescendants()) do
+    LoadScripts(v)
+    end
+end
+LoadScripts(Obj)
+end
+Load(D_E_X)
+
+
 task.spawn(function()
     local Gui = D_E_X
     local IntroFrame = Gui:WaitForChild("IntroFrame")
