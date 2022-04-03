@@ -4275,11 +4275,29 @@ task.spawn(function()
         local mouse = Players.LocalPlayer:GetMouse()
         local extra = (sObj == RunningScriptsStorageMain and 'Refresh Instances' or nil)
         -- local extra2 = (sObj == nilStorageMain and 'Refresh Instances' or nil)
-        currentRightClickMenu = CreateRightClickMenu({'Cut', 'Copy', 'Paste Into', 'Duplicate', 'Delete', 'Group',
-                                                      'Ungroup', 'Select Children', 'Teleport To', -- 'Track',
-        'Insert Part', 'Insert Object', 'View Script', 'Save Script', 'Dump Function', 'Save Instance', 'Call Function',
-                                                      'Call Remote', -- 'Try Get Values',
-        extra -- extra2
+        currentRightClickMenu = CreateRightClickMenu({
+					'Cut', 
+					'Copy', 
+					'Paste Into', 
+					'Duplicate', 
+					'Delete', 
+					'Group',
+                                                      
+					'Ungroup', 
+					'Select Children', 
+					'Teleport To', 
+					-- 'Track',
+					'Insert Part', 
+					'Insert Object', 
+					'View Script', 
+					'Save Script', 
+					--'Dump Function', 
+					'Save Instance', 
+					'Call Function',
+					'Call Remote',
+					-- 'Try Get Values',
+					extra 
+					-- extra2
         }, "", false, function(option)
             if option == "Cut" then
                 if not Option.Modifiable then
