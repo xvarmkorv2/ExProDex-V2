@@ -213,6 +213,43 @@ end
 end)
 end)
 
+task.spawn(function()
+pcall(function()
+if syn and syn.protect_gui then
+
+local img_474172996 = game:HttpGet("https://tr.rbxcdn.com/0c75f3aee3e3d17b9cb39103d8d51545/420/420/Image/Png")
+writefile("474172996.png", tostring(img_474172996))
+
+local img_2998647800 = game:HttpGet("https://tr.rbxcdn.com/d73341749e880b1925c92d5d8e6dd8ae/420/420/Image/Png")
+writefile("2998647800.png", tostring(img_2998647800))
+
+local img_59784769 = game:HttpGet("https://tr.rbxcdn.com/d107646b26de742f118e9f587142aab9/420/420/Image/Png")
+writefile("59784769.png", tostring(img_59784769))
+
+local img_4492476121 = game:HttpGet("https://tr.rbxcdn.com/a278f4df248db978a246e2480cb0d5bf/420/420/Image/Png")
+writefile("4492476121.png", tostring(img_4492476121))
+
+local img_4460063940 = game:HttpGet("https://tr.rbxcdn.com/f9dc3d2446628d8683e29e649ccbf438/420/420/Image/Png")
+writefile("4460063940.png", tostring(img_4460063940))
+
+local img_5832745500 = game:HttpGet("https://tr.rbxcdn.com/9b98d466fa9ff9ead9f62a60feb37be9/420/420/Image/Png")
+writefile("5832745500.png", tostring(img_5832745500))
+
+local img_7360649366 = game:HttpGet("https://tr.rbxcdn.com/97250817ad4217b91e9e6f9671f320ba/420/420/Image/Png")
+writefile("7360649366.png", tostring(img_7360649366))
+
+local img_969742484 = game:HttpGet("https://tr.rbxcdn.com/211abb02dba188402cd8246fb1fa036f/420/420/Image/Png")
+writefile("969742484.png", tostring(img_969742484))
+
+local img_483448923 = game:HttpGet("https://tr.rbxcdn.com/5bff69c1b1f18ff3996b720dd4be6b8a/420/420/Image/Png")
+writefile("483448923.png", tostring(img_483448923))
+
+local img_418720155 = game:HttpGet("https://tr.rbxcdn.com/ad015fb6ccf8fdce3993c49bc022521a/420/420/Image/Png")
+writefile("418720155.png", tostring(img_418720155))
+
+end
+end)
+end)
 			
 local InsertService = cloneref(game:GetService("InsertService"))
 local ContentProv = cloneref(game:GetService("ContentProvider"))
@@ -482,7 +519,11 @@ CreateGui = function()
     Slant.Position = UDim2.new(0, 0, 0, 90)
     Slant.Rotation = 180
     Slant.Size = UDim2.new(0, 30, 0, 30)
+    if syn and syn.protect_gui then
+    Slant.Image = getsynasset("474172996.png")
+    else
     Slant.Image = "http://www.roblox.com/asset/?id=474172996"
+    end
     Slant.ImageColor3 = Color3.fromRGB(43, 43, 43)
     Main.Name = "Main"
     Main.Parent = SideMenu
@@ -522,7 +563,11 @@ CreateGui = function()
     Icon.Position = UDim2.new(0, 5, 0, 5)
     Icon.Size = UDim2.new(0, 20, 0, 20)
     Icon.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon.Image = getsynasset("2998647800.png")
+    else
     Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
+    end
     SaveMap.Name = "SaveMap"
     SaveMap.Parent = SlideFrame
     SaveMap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -542,7 +587,11 @@ CreateGui = function()
     Icon_2.Position = UDim2.new(0, 5, 0, 5)
     Icon_2.Size = UDim2.new(0, 20, 0, 20)
     Icon_2.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon_2.Image = getsynasset("59784769.png")
+    else
     Icon_2.Image = "http://www.roblox.com/asset/?id=59784769"
+    end
     Settings.Name = "Settings"
     Settings.Parent = SlideFrame
     Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -562,7 +611,11 @@ CreateGui = function()
     Icon_3.Position = UDim2.new(0, 5, 0, 5)
     Icon_3.Size = UDim2.new(0, 20, 0, 20)
     Icon_3.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon_3.Image = getsynasset("4492476121.png")
+    else
     Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
+    end
     Remotes.Name = "Remotes"
     Remotes.Parent = SlideFrame
     Remotes.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -582,7 +635,11 @@ CreateGui = function()
     Icon_4.Position = UDim2.new(0, 5, 0, 5)
     Icon_4.Size = UDim2.new(0, 20, 0, 20)
     Icon_4.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon_4.Image = getsynasset("4460063940.png")
+    else
     Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
+    end
     About.Name = "About"
     About.Parent = SlideFrame
     About.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -602,7 +659,11 @@ CreateGui = function()
     Icon_5.Position = UDim2.new(0, 5, 0, 5)
     Icon_5.Size = UDim2.new(0, 20, 0, 20)
     Icon_5.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon_5.Image = getsynasset("5832745500.png")
+    else
     Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
+    end
     OpenScriptEditor.Name = "OpenScriptEditor"
     OpenScriptEditor.Parent = SideMenu
     OpenScriptEditor.Active = false
@@ -622,7 +683,11 @@ CreateGui = function()
     Icon_6.Position = UDim2.new(0, 5, 0, 5)
     Icon_6.Size = UDim2.new(0, 20, 0, 20)
     Icon_6.ZIndex = 2
+    if syn and syn.protect_gui then
+    Icon_6.Image = getsynasset("7360649366.png")
+    else
     Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
+    end
     Icon_6.ImageTransparency = 1
     Toggle_2.Name = "Toggle"
     Toggle_2.Parent = ROBLOX
@@ -1390,7 +1455,11 @@ CreateGui = function()
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.ZIndex = 5
+    if syn and syn.protect_gui then
+    ImageLabel.Image = getsynasset("969742484.png")
+    else
     ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
+    end
     ImageLabel.ScaleType = Enum.ScaleType.Tile
     ImageLabel.TileSize = UDim2.new(25, 0, 6, 0)
     Title_8.Name = "Title"
@@ -1436,7 +1505,11 @@ CreateGui = function()
     BG.BorderSizePixel = 0
     BG.Size = UDim2.new(1, 0, 1, 0)
     BG.ZIndex = 3
+    if syn and syn.protect_gui then
+    BG.Image = getsynasset("969742484.png")
+    else
     BG.Image = "http://www.roblox.com/asset/?id=969742484"
+    end
     BG.ScaleType = Enum.ScaleType.Tile
     BG.TileSize = UDim2.new(4, 0, 1, 0)
     Slant_2.Name = "Slant"
