@@ -193,7 +193,7 @@ end)
 local LogService = cloneref(game:GetService("LogService"))
 local ScriptContext = cloneref(game:GetService("ScriptContext"))
 
-task.spawn()
+task.spawn(function()
 pcall(function()
 if getconnections then	
 
