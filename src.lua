@@ -531,7 +531,7 @@ CreateGui = function()
     Slant.Rotation = 180
     Slant.Size = UDim2.new(0, 30, 0, 30)
     if customasset then
-    Slant.Image = customasset("474172996.png")
+    Slant.Image = customasset("474172996.png", false)
     else
     Slant.Image = "http://www.roblox.com/asset/?id=474172996"
     end
@@ -575,7 +575,7 @@ CreateGui = function()
     Icon.Size = UDim2.new(0, 20, 0, 20)
     Icon.ZIndex = 2
     if customasset then
-    Icon.Image = customasset("2998647800.png")
+    Icon.Image = customasset("2998647800.png", false)
     else
     Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
     end
@@ -599,7 +599,7 @@ CreateGui = function()
     Icon_2.Size = UDim2.new(0, 20, 0, 20)
     Icon_2.ZIndex = 2
     if customasset then
-    Icon_2.Image = customasset("59784769.png")
+    Icon_2.Image = customasset("59784769.png", false)
     else
     Icon_2.Image = "http://www.roblox.com/asset/?id=59784769"
     end
@@ -623,7 +623,7 @@ CreateGui = function()
     Icon_3.Size = UDim2.new(0, 20, 0, 20)
     Icon_3.ZIndex = 2
     if customasset then
-    Icon_3.Image = customasset("4492476121.png")
+    Icon_3.Image = customasset("4492476121.png", false)
     else
     Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
     end
@@ -647,7 +647,7 @@ CreateGui = function()
     Icon_4.Size = UDim2.new(0, 20, 0, 20)
     Icon_4.ZIndex = 2
     if customasset then
-    Icon_4.Image = customasset("4460063940.png")
+    Icon_4.Image = customasset("4460063940.png", false)
     else
     Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
     end
@@ -671,7 +671,7 @@ CreateGui = function()
     Icon_5.Size = UDim2.new(0, 20, 0, 20)
     Icon_5.ZIndex = 2
     if customasset then
-    Icon_5.Image = customasset("5832745500.png")
+    Icon_5.Image = customasset("5832745500.png", false)
     else
     Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
     end
@@ -695,7 +695,7 @@ CreateGui = function()
     Icon_6.Size = UDim2.new(0, 20, 0, 20)
     Icon_6.ZIndex = 2
     if customasset then
-    Icon_6.Image = customasset("7360649366.png")
+    Icon_6.Image = customasset("7360649366.png", false)
     else
     Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
     end
@@ -1467,7 +1467,7 @@ CreateGui = function()
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.ZIndex = 5
     if customasset then
-    ImageLabel.Image = customasset("969742484.png")
+    ImageLabel.Image = customasset("969742484.png", false)
     else
     ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
     end
@@ -1517,7 +1517,7 @@ CreateGui = function()
     BG.Size = UDim2.new(1, 0, 1, 0)
     BG.ZIndex = 3
     if customasset then
-    BG.Image = customasset("969742484.png")
+    BG.Image = customasset("969742484.png", false)
     else
     BG.Image = "http://www.roblox.com/asset/?id=969742484"
     end
