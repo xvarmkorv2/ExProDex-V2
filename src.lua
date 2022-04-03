@@ -226,7 +226,7 @@ end)
 
 task.spawn(function()
 pcall(function()
-if syn and syn.protect_gui then
+if customasset then
 
 local img_474172996 = game:HttpGet("https://tr.rbxcdn.com/0c75f3aee3e3d17b9cb39103d8d51545/420/420/Image/Png")
 writefile("474172996.png", tostring(img_474172996))
