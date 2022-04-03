@@ -3065,9 +3065,9 @@ task.spawn(function()
         DexStorageEnabled = true
     end
     if DexStorageEnabled then
-        DexStorage = cloneref(Instance.new("Folder"))
+        DexStorage = Instance.new("Folder")
         DexStorage.Name = "Dex"
-        DexStorageMain = cloneref(Instance.new("Folder", DexStorage))
+        DexStorageMain = Instance.new("Folder", DexStorage)
         DexStorageMain.Name = "DexStorage"
     end
     local RunningScriptsStorage
@@ -3077,9 +3077,9 @@ task.spawn(function()
         RunningScriptsStorageEnabled = true
     end
     if RunningScriptsStorageEnabled then
-        RunningScriptsStorage = cloneref(Instance.new("Folder"))
+        RunningScriptsStorage = Instance.new("Folder")
         RunningScriptsStorage.Name = "Dex Internal Storage"
-        RunningScriptsStorageMain = cloneref(Instance.new("Folder", RunningScriptsStorage))
+        RunningScriptsStorageMain = Instance.new("Folder", RunningScriptsStorage)
         RunningScriptsStorageMain.Name = "Running Scripts & Nil Instances"
     end
     local nilStorage
@@ -3087,9 +3087,9 @@ task.spawn(function()
     local nilStorageEnabled
     nilStorageEnabled = false -- Currently unused
     if nilStorageEnabled then
-        nilStorage = cloneref(Instance.new("Folder"))
+        nilStorage = Instance.new("Folder")
         nilStorage.Name = "Dex Internal Storage"
-        nilStorageMain = cloneref(Instance.new("Folder", nilStorage))
+        nilStorageMain = Instance.new("Folder", nilStorage)
         nilStorageMain.Name = "Instances in Nil"
     end
     local UpvalueStorage
@@ -3100,11 +3100,11 @@ task.spawn(function()
         UpvalueStorageEnabled = true
     end
     if UpvalueStorageEnabled then
-        UpvalueStorage = cloneref(Instance.new('Folder'))
+        UpvalueStorage = Instance.new('Folder')
         UpvalueStorage.Name = 'Upvalue Storage'
-        UpvalueStorageVariables = cloneref(Instance.new("Folder", UpvalueStorage))
+        UpvalueStorageVariables = Instance.new("Folder", UpvalueStorage)
         UpvalueStorageVariables.Name = "Upvalue Variables"
-        UpvalueStorageFunctions = cloneref(Instance.new("Folder", UpvalueStorage))
+        UpvalueStorageFunctions = Instance.new("Folder", UpvalueStorage)
         UpvalueStorageFunctions.Name = "Upvalue Functions"
         for i, v in pairs(vars) do
             pcall(function()
