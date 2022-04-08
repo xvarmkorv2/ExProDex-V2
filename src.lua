@@ -200,46 +200,6 @@ end
 end
 end)
 end)
-
-task.spawn(function()
-pcall(function()
-if debug and debug.getconstants and hookfunction then
-local cc = checkclosure or isexecutorclosure or is_synapse_function
-
-local function CheckConstants(Function, Constants)
-    local ExpectedNum = #Constants;
-    if (ExpectedNum ~= #debug.getconstants(Function)) then
-        return false;
-    end
-    local TotalNum = 0;
-    for i, v in next, debug.getconstants(Function)) do
-        if (table.find(Constants, v)) then
-            TotalNum = TotalNum + 1;
-        end
-    end
-    if (TotalNum ~= ExpectedNum) then
-        return false;
-    end
-    return true;
-end
-
-local Constants = {"rbxassetid://", "find"};
-for i, v in next, getgc() do
-    if (typeof(v) == "function" and not cc(v) and islclosure(v)) then
-        if (CheckConstants(v, Constants)) then
-            local old;
-            old = hookfunction(v, function(assetid, status)
-                if (assetid:find("rbxassetid://")) then
-                    return;
-                end
-                return old(assetid, status);
-            end)
-        end
-    end
-end
-end
-end)
-end)
 				
 local LogService = cloneref(game:GetService("LogService"))
 local ScriptContext = cloneref(game:GetService("ScriptContext"))
