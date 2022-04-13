@@ -11,3 +11,9 @@ My aim was to build on the success of ExProDex V1 and create a far superior Dex,
 Load ExProDex V2 using:
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/ExProDex-V2/main/src.lua", false))()
+
+Being detected in a game when executing the normal version? Try the one below!
+
+Memory check bypass version:
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/ExProDex-V2/main/srcmemcheckbypass.lua", false))()
