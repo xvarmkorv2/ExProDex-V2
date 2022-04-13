@@ -87,7 +87,7 @@ local memCheckBypass2 --Kaid#0001
 
 memCheckBypass2 = hookfunction(getrenv().collectgarbage, function(...)
    --warn("Script tried to memory check, PATH: \n"..debug.traceback())
-   return tonumber(math.random(55-math.random(1,45), 110-math.random(1,35)*0.215+23-math.random(1, 45)))
+   return tonumber(math.random(55-math.random(1,45), 110-math.random(1,35)*0.215-math.random(1, 45)))
 end)
 end)
 
