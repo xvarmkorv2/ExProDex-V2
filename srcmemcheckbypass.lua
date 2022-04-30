@@ -36,6 +36,18 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+local old_game = game
+local game = cloneref(old_game)
+
+local old_Game = Game
+local Game = cloneref(old_Game)
+
+local old_workspace = workspace
+local workspace = cloneref(old_workspace)
+
+local old_Workspace = Workspace
+local Workspace = cloneref(old_Workspace)
+
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
 local wait = function(int)
