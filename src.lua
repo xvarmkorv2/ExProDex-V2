@@ -36,6 +36,17 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+local old_game = game
+local game = cloneref(old_game)
+
+local old_Game = Game
+local Game = cloneref(old_Game)
+
+local old_workspace = workspace
+local workspace = cloneref(old_workspace)
+
+local old_Workspace = Workspace
+local Workspace = cloneref(old_Workspace)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
@@ -185,14 +196,14 @@ Folder.Parent = HideInMe
 task.spawn(function()
 pcall(function()
 if getconnections then
-for i, v in ipairs(cloneref(game):GetChildren()) do
+for i, v in ipairs(game:GetChildren()) do
 	if v.Name == "Instance" then
 		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
 		v:Disable()
         end
     end
 end          
-for i, v in ipairs(cloneref(game):GetChildren()) do
+for i, v in ipairs(game:GetChildren()) do
     if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
     v.Name = v.ClassName
     end
