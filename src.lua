@@ -196,14 +196,14 @@ Folder.Parent = HideInMe
 task.spawn(function()
 pcall(function()
 if getconnections then
-for i, v in ipairs(game:GetChildren()) do
+for i, v in pairs(game:GetChildren()) do
 	if v.Name == "Instance" then
 		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
 		v:Disable()
         end
     end
 end          
-for i, v in ipairs(game:GetChildren()) do
+for i, v in pairs(game:GetChildren()) do
     if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
     v.Name = v.ClassName
     end
