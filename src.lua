@@ -3892,10 +3892,10 @@ task.spawn(function()
             })
             bindSetSelection.Parent = explorerPanel
         end
-        local bindSelectionChanged = explorerPanel:FindFirstChild("SelectionChanged")
+        local bindSelectionChanged = explorerPanel:FindFirstChild("SelectionHasChanged")
         if not bindSelectionChanged then
             bindSelectionChanged = Create('BindableEvent', {
-                Name = "SelectionChanged"
+                Name = "SelectionHasChanged"
             })
             bindSelectionChanged.Parent = explorerPanel
         end
@@ -5976,7 +5976,7 @@ task.spawn(function()
     local PropertiesFrame = Gui:WaitForChild("PropertiesFrame")
     local ExplorerFrame = Gui:WaitForChild("ExplorerPanel")
     local bindGetSelection = ExplorerFrame.GetSelection
-    local bindSelectionChanged = ExplorerFrame.SelectionChanged
+    local bindSelectionChanged = ExplorerFrame.SelectionHasChanged
     local bindGetApi = PropertiesFrame.GetApi
     local bindGetAwait = PropertiesFrame.GetAwaiting
     local bindSetAwait = PropertiesFrame.SetAwaiting
