@@ -1835,7 +1835,7 @@ CreateGui = function()
     NewGuiPart156.Name = "SetSelection"
     NewGuiPart156.Parent = ExplorerPanel
     NewGuiPart156.Archivable = true
-    NewGuiPart157.Name = "SelectionChanged"
+    NewGuiPart157.Name = "SelectionHasChanged"
     NewGuiPart157.Parent = ExplorerPanel
     NewGuiPart157.Archivable = true
     NewGuiPart161.Name = "GetSetting"
@@ -1946,7 +1946,7 @@ task.spawn(function()
         LightingProperties = true,
         CameraInstances = true
     }
-    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionChanged")
+    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionHasChanged")
     local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
     local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
     local Players = cloneref(game:GetService("Players"))
