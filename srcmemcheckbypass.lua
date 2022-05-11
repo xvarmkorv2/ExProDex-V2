@@ -60,32 +60,6 @@ repeat task.wait(0) until (tick() - t) >= int
 end
 
 pcall(function()
-if hookmetamethod and hookfunction then
-local OldIndex
-OldIndex = hookmetamethod(game, "__index", function(Self, Index)
-    return OldIndex(Self, Index)
-end)
-
-local OldNewIndex
-OldNewIndex = hookmetamethod(game, "__newindex", function(Self, Index, Value)
-    return OldNewIndex(Self, Index, Value)
-end)
-
-local OldNamecall
-OldNamecall = hookmetamethod(game, "__namecall", function(Self, ...)
-    return OldNamecall(Self, ...)
-end)
-
-local mt = getrawmetatable(game)
-
-local old
-old = hookfunction(mt.__namecall, function(...)
-   return old(...)
-end)
-end
-end)
-
-pcall(function()
 if hookfunction and getrenv then
 local memCheckBypass
 
@@ -94,7 +68,7 @@ memCheckBypass = hookfunction(getrenv().gcinfo, function(...)
    return tonumber(math.random(55-math.random(1,45), 110-math.random(1,35)*0.215+23-math.random(1, 45)))
 end)
 end
-		
+
 local memCheckBypass2 --Kaid#0001
 
 memCheckBypass2 = hookfunction(getrenv().collectgarbage, function(...)
@@ -240,14 +214,14 @@ Folder.Parent = HideInMe
 task.spawn(function()
 pcall(function()
 if getconnections then
-for i, v in ipairs(cloneref(game):GetChildren()) do
+for i, v in pairs(game:GetChildren()) do
 	if v.Name == "Instance" then
 		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
 		v:Disable()
         end
     end
 end          
-for i, v in ipairs(cloneref(game):GetChildren()) do
+for i, v in pairs(game:GetChildren()) do
     if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
     v.Name = v.ClassName
     end
@@ -1879,7 +1853,7 @@ CreateGui = function()
     NewGuiPart156.Name = "SetSelection"
     NewGuiPart156.Parent = ExplorerPanel
     NewGuiPart156.Archivable = true
-    NewGuiPart157.Name = "SelectionChanged"
+    NewGuiPart157.Name = "SelectionHasChanged"
     NewGuiPart157.Parent = ExplorerPanel
     NewGuiPart157.Archivable = true
     NewGuiPart161.Name = "GetSetting"
@@ -1990,7 +1964,7 @@ task.spawn(function()
         LightingProperties = true,
         CameraInstances = true
     }
-    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionChanged")
+    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionHasChanged")
     local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
     local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
     local Players = cloneref(game:GetService("Players"))
@@ -3936,10 +3910,10 @@ task.spawn(function()
             })
             bindSetSelection.Parent = explorerPanel
         end
-        local bindSelectionChanged = explorerPanel:FindFirstChild("SelectionChanged")
+        local bindSelectionChanged = explorerPanel:FindFirstChild("SelectionHasChanged")
         if not bindSelectionChanged then
             bindSelectionChanged = Create('BindableEvent', {
-                Name = "SelectionChanged"
+                Name = "SelectionHasChanged"
             })
             bindSelectionChanged.Parent = explorerPanel
         end
@@ -6020,7 +5994,7 @@ task.spawn(function()
     local PropertiesFrame = Gui:WaitForChild("PropertiesFrame")
     local ExplorerFrame = Gui:WaitForChild("ExplorerPanel")
     local bindGetSelection = ExplorerFrame.GetSelection
-    local bindSelectionChanged = ExplorerFrame.SelectionChanged
+    local bindSelectionChanged = ExplorerFrame.SelectionHasChanged
     local bindGetApi = PropertiesFrame.GetApi
     local bindGetAwait = PropertiesFrame.GetAwaiting
     local bindSetAwait = PropertiesFrame.SetAwaiting
