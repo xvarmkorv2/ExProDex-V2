@@ -42,9 +42,6 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
-local TestService = cloneref(game:GetService("TestService"))
-
-
 local game = cloneref(game)
 local Game = cloneref(Game)
 local workspace = cloneref(workspace)
@@ -72,6 +69,15 @@ error = clonefunction(old_error)
 end
 end)
 end)
+
+local TestService = cloneref(game:GetService("TestService"))
+
+local function info(args)
+local args_string = tostring(args)
+return TestService:Message(args_string)
+end
+
+getgenv().info = info
 
 local wait = function(int)
 if not int then
