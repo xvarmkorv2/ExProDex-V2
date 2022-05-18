@@ -42,17 +42,13 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
-local old_game = game
-local game = cloneref(old_game)
+local TestService = cloneref(game:GetService("TestService"))
 
-local old_Game = Game
-local Game = cloneref(old_Game)
 
-local old_workspace = workspace
-local workspace = cloneref(old_workspace)
-
-local old_Workspace = Workspace
-local Workspace = cloneref(old_Workspace)
+local game = cloneref(game)
+local Game = cloneref(Game)
+local workspace = cloneref(workspace)
+local Workspace = cloneref(Workspace)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
 
