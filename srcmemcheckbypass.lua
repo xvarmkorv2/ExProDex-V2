@@ -7,6 +7,12 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
+local genv = getfenv(0) or _G or shared
+
+local getgenv = getgenv or function()
+return genv
+end
+
 if (getgenv().EXPRODEX_LOADED) then return; end
 
 getgenv().EXPRODEX_LOADED = true
@@ -36,19 +42,132 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
-local old_game = game
-local game = cloneref(old_game)
-
-local old_Game = Game
-local Game = cloneref(old_Game)
-
-local old_workspace = workspace
-local workspace = cloneref(old_workspace)
-
-local old_Workspace = Workspace
-local Workspace = cloneref(old_Workspace)
+local game = cloneref(game)
+local Game = cloneref(Game)
+local workspace = cloneref(workspace)
+local Workspace = cloneref(Workspace)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
+
+local old_print = print
+local old_warn = warn
+local old_error = error
+
+local print = old_print
+local warn = old_warn
+local error = old_error
+
+task.spawn(function()
+pcall(function()
+if clonefunction and getgenv then
+getgenv().print = clonefunction(old_print)
+getgenv().warn = clonefunction(old_warn)
+getgenv().error = clonefunction(old_error)
+print = clonefunction(old_print)
+warn = clonefunction(old_warn)
+error = clonefunction(old_error)
+end
+end)
+end)
+
+getgenv().notification = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L8X/notificationstuff/main/src.lua", true))()
+
+local function notify(title, duration)
+    notification(
+        {
+            Text = title,
+            Duration = duration
+        }
+    )
+end
+getgenv().notify = notify
+
+local alert = function(msg)
+    notify(msg, 5)
+end
+
+--Kaid#0001 | Memcheck bypass
+math.randomseed(tick())
+local cclosure = syn_newcclosure or newcclosure or nil
+
+if cclosure and hookfunction and getrenv then
+    local minMem = 1e12
+    local maxMem = 0
+    local currMem = 0
+    alert("Loading Memcheck Bypass...")
+    repeat
+        task.wait(.1)
+        local mem = gcinfo()
+        currMem = mem
+        if mem < minMem then
+            minMem = mem
+        elseif mem > maxMem then
+            maxMem = mem
+        end
+    until task.wait(6) and minMem ~= 0 and maxMem ~= 0
+    
+    coroutine.wrap(function()
+        while task.wait() do
+            currMem = currMem + math.random(1,10)
+            if currMem > maxMem then
+                currMem = minMem
+            end
+        end
+    end)()
+    
+    hookfunction(getrenv().gcinfo,cclosure(function()
+        return currMem
+    end))
+    hookfunction(getrenv().collectgarbage,cclosure(function()
+        return currMem
+    end))
+    alert("Loaded Memcheck Bypass ~Kaid")
+elseif hookfunction and getrenv then
+    local minMem = 1e12
+    local maxMem = 0
+    local currMem = 0
+    alert("Loading Memcheck Bypass...")
+    repeat
+        task.wait(.1)
+        local mem = gcinfo()
+        currMem = mem
+        if mem < minMem then
+            minMem = mem
+        elseif mem > maxMem then
+            maxMem = mem
+        end
+    until task.wait(6) and minMem ~= 0 and maxMem ~= 0
+    
+    coroutine.wrap(function()
+        while task.wait() do
+            currMem = currMem + math.random(1,10)
+            if currMem > maxMem then
+                currMem = minMem
+            end
+        end
+    end)()
+    
+    hookfunction(getrenv().gcinfo,function()
+        return currMem
+    end)
+    hookfunction(getrenv().collectgarbage,function()
+        return currMem
+    end)
+    alert("Your shitty exploit doesn't even support cclosure? Still bypassed memcheck but WTF. (Go buy synapse at x.synapse.to or scriptware at script-ware.com) ~Kaid")
+else
+    alert("Your shitty exploit doesn't support memcheck bypassing! (Go buy synapse at x.synapse.to or scriptware at script-ware.com) ~Kaid")
+end
+
+task.wait(.1)
+
+local TestService = cloneref(game:GetService("TestService"))
+
+local function info(args)
+local args_string = tostring(args)
+return TestService:Message(args_string)
+end
+
+getgenv().info = info
 
 local wait = function(int)
 if not int then
@@ -58,24 +177,6 @@ local t = tick()
 repeat task.wait(0) until (tick() - t) >= int
     return (tick() - t), t
 end
-
-pcall(function()
-if hookfunction and getrenv then
-local memCheckBypass
-
-memCheckBypass = hookfunction(getrenv().gcinfo, function(...)
-   --warn("Script tried to memory check, PATH: \n"..debug.traceback())
-   return tonumber(math.random(55-math.random(1,45), 110-math.random(1,35)*0.215+23-math.random(1, 45)))
-end)
-end
-
-local memCheckBypass2 --Kaid#0001
-
-memCheckBypass2 = hookfunction(getrenv().collectgarbage, function(...)
-   --warn("Script tried to memory check, PATH: \n"..debug.traceback())
-   return tonumber(math.random(55-math.random(1,45), 110-math.random(1,35)*0.215+23-math.random(1, 45)))
-end)
-end)
 
 local Players = cloneref(game:GetService("Players"))
 
