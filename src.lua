@@ -7,6 +7,12 @@
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚══════╝
 ]]--
 
+local genv = getfenv(0) or _G or shared
+
+local getgenv = getgenv or function()
+return genv
+end
+
 if (getgenv().EXPRODEX_LOADED) then return; end
 
 getgenv().EXPRODEX_LOADED = true
@@ -36,19 +42,42 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
-local old_game = game
-local game = cloneref(old_game)
-
-local old_Game = Game
-local Game = cloneref(old_Game)
-
-local old_workspace = workspace
-local workspace = cloneref(old_workspace)
-
-local old_Workspace = Workspace
-local Workspace = cloneref(old_Workspace)
+local game = cloneref(game)
+local Game = cloneref(Game)
+local workspace = cloneref(workspace)
+local Workspace = cloneref(Workspace)
 
 pcall(function() settings().Diagnostics.IsScriptStackTracingEnabled = false end)
+
+local old_print = print
+local old_warn = warn
+local old_error = error
+
+local print = old_print
+local warn = old_warn
+local error = old_error
+
+task.spawn(function()
+pcall(function()
+if clonefunction and getgenv then
+getgenv().print = clonefunction(old_print)
+getgenv().warn = clonefunction(old_warn)
+getgenv().error = clonefunction(old_error)
+print = clonefunction(old_print)
+warn = clonefunction(old_warn)
+error = clonefunction(old_error)
+end
+end)
+end)
+
+local TestService = cloneref(game:GetService("TestService"))
+
+local function info(args)
+local args_string = tostring(args)
+return TestService:Message(args_string)
+end
+
+getgenv().info = info
 
 local wait = function(int)
 if not int then
