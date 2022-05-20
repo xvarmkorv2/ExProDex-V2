@@ -17,3 +17,7 @@ Being detected in a game when executing the normal version? Try the one below!
 Memory check bypass version:
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/ExProDex-V2/main/srcmemcheckbypass.lua", false))()
+
+
+"ExPro", "ExPro Reborn", "ExProHacks", "ExProHacks Reborn" and "ExProDex" are all unregistered trademarks owned by https://github.com/L8X and are protected by various international agreements and laws, using these marks of trade without permission can result in legal action being taken against you.
+If you are going to fork or edit my work, please do not redistribute without giving full credits to this page and my GitHub profile.
