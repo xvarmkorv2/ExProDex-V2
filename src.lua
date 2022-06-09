@@ -10,7 +10,7 @@
 local genv = getfenv(0) or _G or shared
 
 local getgenv = getgenv or function()
-return genv
+    return genv
 end
 
 if (getgenv().EXPRODEX_LOADED) then return; end
@@ -20,12 +20,12 @@ getgenv().EXPRODEX_LOADED = true
 local customasset
 
 pcall(function() 
-if getgenv then 
-customasset = getsynasset or getcustomasset
-getgenv().customasset = customasset
-else
-customasset = getsynasset or getcustomasset
-end
+    if getgenv then 
+        customasset = getsynasset or getcustomasset
+        getgenv().customasset = customasset
+    else
+        customasset = getsynasset or getcustomasset
+    end
 end)
 
 pcall(function()
@@ -58,34 +58,34 @@ local warn = old_warn
 local error = old_error
 
 task.spawn(function()
-pcall(function()
-if clonefunction and getgenv then
-getgenv().print = clonefunction(old_print)
-getgenv().warn = clonefunction(old_warn)
-getgenv().error = clonefunction(old_error)
-print = clonefunction(old_print)
-warn = clonefunction(old_warn)
-error = clonefunction(old_error)
-end
-end)
+    pcall(function()
+        if clonefunction and getgenv then
+            getgenv().print = clonefunction(old_print)
+            getgenv().warn = clonefunction(old_warn)
+            getgenv().error = clonefunction(old_error)
+            print = clonefunction(old_print)
+            warn = clonefunction(old_warn)
+            error = clonefunction(old_error)
+        end
+    end)
 end)
 
 local TestService = cloneref(game:GetService("TestService"))
 
 local function info(args)
-local args_string = tostring(args)
-return TestService:Message(args_string)
+    local args_string = tostring(args)
+    return TestService:Message(args_string)
 end
 
 getgenv().info = info
 
-local wait = function(int)
-if not int then
-   int = 0
-end
-local t = tick()
-repeat task.wait(0) until (tick() - t) >= int
-    return (tick() - t), t
+    local wait = function(int)
+    if not int then
+    int = 0
+    end
+    local t = tick()
+    repeat task.wait(0) until (tick() - t) >= int
+     return (tick() - t), t
 end
 
 local Players = cloneref(game:GetService("Players"))
@@ -115,8 +115,7 @@ getgenv().gethiddengui = gethiddengui
 task.spawn(function()
     pcall(function()
         if getconnections then
-            
-            for i, v in next, getconnections(CoreGui.ChildAdded) do
+             for i, v in next, getconnections(CoreGui.ChildAdded) do
                 v:Disable()
             end
             
@@ -223,83 +222,81 @@ end)
 Folder.Parent = HideInMe
 
 task.spawn(function()
-pcall(function()
-if getconnections then
-for i, v in pairs(game:GetChildren()) do
-	if v.Name == "Instance" then
-		for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
-		v:Disable()
+    pcall(function()
+    if getconnections then
+        for i, v in pairs(game:GetChildren()) do
+            if v.Name == "Instance" then
+                for i, v in next, getconnections(v:GetPropertyChangedSignal("Name")) do
+                v:Disable()
+                end
+            end
+        end      
+        for i, v in pairs(game:GetChildren()) do
+            if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
+                v.Name = v.ClassName
+                end
+            end
         end
-    end
-end          
-for i, v in pairs(game:GetChildren()) do
-    if v.Name == "Instance" and v.ClassName ~= "" and v.ClassName ~= " " then
-    v.Name = v.ClassName
-    end
-end
-end
-end)
+    end)
 end)
 				
 local LogService = cloneref(game:GetService("LogService"))
 local ScriptContext = cloneref(game:GetService("ScriptContext"))
 
 task.spawn(function()
-pcall(function()
-if getconnections then	
+    pcall(function()
+        if getconnections then	
 
-for i, v in next, getconnections(LogService.MessageOut) do
-v:Disable()
-end
-			
-for i, v in next, getconnections(ScriptContext.Error) do
-v:Disable()
-end
-		
-for i, v in next, getconnections(ScriptContext.ErrorDetailed) do
-v:Disable()
-end
+        for i, v in next, getconnections(LogService.MessageOut) do
+            v:Disable()
+        end
+                    
+        for i, v in next, getconnections(ScriptContext.Error) do
+            v:Disable()
+        end
+                
+        for i, v in next, getconnections(ScriptContext.ErrorDetailed) do
+            v:Disable()
+        end
 
-end
-end)
+        end
+    end)
 end)
 
 task.spawn(function()
 pcall(function()
-if customasset then
+    if customasset then
+        local img_474172996 = game:HttpGet("https://tr.rbxcdn.com/0c75f3aee3e3d17b9cb39103d8d51545/420/420/Image/Png")
+        writefile("474172996.png", tostring(img_474172996))
 
-local img_474172996 = game:HttpGet("https://tr.rbxcdn.com/0c75f3aee3e3d17b9cb39103d8d51545/420/420/Image/Png")
-writefile("474172996.png", tostring(img_474172996))
+        local img_2998647800 = game:HttpGet("https://tr.rbxcdn.com/d73341749e880b1925c92d5d8e6dd8ae/420/420/Image/Png")
+        writefile("2998647800.png", tostring(img_2998647800))
 
-local img_2998647800 = game:HttpGet("https://tr.rbxcdn.com/d73341749e880b1925c92d5d8e6dd8ae/420/420/Image/Png")
-writefile("2998647800.png", tostring(img_2998647800))
+        local img_59784769 = game:HttpGet("https://tr.rbxcdn.com/d107646b26de742f118e9f587142aab9/420/420/Image/Png")
+        writefile("59784769.png", tostring(img_59784769))
 
-local img_59784769 = game:HttpGet("https://tr.rbxcdn.com/d107646b26de742f118e9f587142aab9/420/420/Image/Png")
-writefile("59784769.png", tostring(img_59784769))
+        local img_4492476121 = game:HttpGet("https://tr.rbxcdn.com/a278f4df248db978a246e2480cb0d5bf/420/420/Image/Png")
+        writefile("4492476121.png", tostring(img_4492476121))
 
-local img_4492476121 = game:HttpGet("https://tr.rbxcdn.com/a278f4df248db978a246e2480cb0d5bf/420/420/Image/Png")
-writefile("4492476121.png", tostring(img_4492476121))
+        local img_4460063940 = game:HttpGet("https://tr.rbxcdn.com/f9dc3d2446628d8683e29e649ccbf438/420/420/Image/Png")
+        writefile("4460063940.png", tostring(img_4460063940))
 
-local img_4460063940 = game:HttpGet("https://tr.rbxcdn.com/f9dc3d2446628d8683e29e649ccbf438/420/420/Image/Png")
-writefile("4460063940.png", tostring(img_4460063940))
+        local img_5832745500 = game:HttpGet("https://tr.rbxcdn.com/9b98d466fa9ff9ead9f62a60feb37be9/420/420/Image/Png")
+        writefile("5832745500.png", tostring(img_5832745500))
 
-local img_5832745500 = game:HttpGet("https://tr.rbxcdn.com/9b98d466fa9ff9ead9f62a60feb37be9/420/420/Image/Png")
-writefile("5832745500.png", tostring(img_5832745500))
+        local img_7360649366 = game:HttpGet("https://tr.rbxcdn.com/97250817ad4217b91e9e6f9671f320ba/420/420/Image/Png")
+        writefile("7360649366.png", tostring(img_7360649366))
 
-local img_7360649366 = game:HttpGet("https://tr.rbxcdn.com/97250817ad4217b91e9e6f9671f320ba/420/420/Image/Png")
-writefile("7360649366.png", tostring(img_7360649366))
+        local img_969742484 = game:HttpGet("https://tr.rbxcdn.com/211abb02dba188402cd8246fb1fa036f/420/420/Image/Png")
+        writefile("969742484.png", tostring(img_969742484))
 
-local img_969742484 = game:HttpGet("https://tr.rbxcdn.com/211abb02dba188402cd8246fb1fa036f/420/420/Image/Png")
-writefile("969742484.png", tostring(img_969742484))
+        local img_483448923 = game:HttpGet("https://tr.rbxcdn.com/5bff69c1b1f18ff3996b720dd4be6b8a/420/420/Image/Png")
+        writefile("483448923.png", tostring(img_483448923))
 
-local img_483448923 = game:HttpGet("https://tr.rbxcdn.com/5bff69c1b1f18ff3996b720dd4be6b8a/420/420/Image/Png")
-writefile("483448923.png", tostring(img_483448923))
-
-local img_418720155 = game:HttpGet("https://tr.rbxcdn.com/ad015fb6ccf8fdce3993c49bc022521a/420/420/Image/Png")
-writefile("418720155.png", tostring(img_418720155))
-
-end
-end)
+        local img_418720155 = game:HttpGet("https://tr.rbxcdn.com/ad015fb6ccf8fdce3993c49bc022521a/420/420/Image/Png")
+        writefile("418720155.png", tostring(img_418720155))
+        end
+    end)
 end)
 			
 local InsertService = cloneref(game:GetService("InsertService"))
@@ -571,9 +568,9 @@ CreateGui = function()
     Slant.Rotation = 180
     Slant.Size = UDim2.new(0, 30, 0, 30)
     if customasset then
-    Slant.Image = customasset("474172996.png", false)
+        Slant.Image = customasset("474172996.png", false)
     else
-    Slant.Image = "http://www.roblox.com/asset/?id=474172996"
+        Slant.Image = "http://www.roblox.com/asset/?id=474172996"
     end
     Slant.ImageColor3 = Color3.fromRGB(43, 43, 43)
     Main.Name = "Main"
@@ -615,9 +612,9 @@ CreateGui = function()
     Icon.Size = UDim2.new(0, 20, 0, 20)
     Icon.ZIndex = 2
     if customasset then
-    Icon.Image = customasset("2998647800.png", false)
+        Icon.Image = customasset("2998647800.png", false)
     else
-    Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
+        Icon.Image = "http://www.roblox.com/asset/?id=2998647800"
     end
     SaveMap.Name = "SaveMap"
     SaveMap.Parent = SlideFrame
@@ -663,9 +660,9 @@ CreateGui = function()
     Icon_3.Size = UDim2.new(0, 20, 0, 20)
     Icon_3.ZIndex = 2
     if customasset then
-    Icon_3.Image = customasset("4492476121.png", false)
+        Icon_3.Image = customasset("4492476121.png", false)
     else
-    Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
+        Icon_3.Image = "http://www.roblox.com/asset/?id=4492476121"
     end
     Remotes.Name = "Remotes"
     Remotes.Parent = SlideFrame
@@ -687,9 +684,9 @@ CreateGui = function()
     Icon_4.Size = UDim2.new(0, 20, 0, 20)
     Icon_4.ZIndex = 2
     if customasset then
-    Icon_4.Image = customasset("4460063940.png", false)
+        Icon_4.Image = customasset("4460063940.png", false)
     else
-    Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
+        Icon_4.Image = "http://www.roblox.com/asset/?id=4460063940"
     end
     About.Name = "About"
     About.Parent = SlideFrame
@@ -711,9 +708,9 @@ CreateGui = function()
     Icon_5.Size = UDim2.new(0, 20, 0, 20)
     Icon_5.ZIndex = 2
     if customasset then
-    Icon_5.Image = customasset("5832745500.png", false)
+        Icon_5.Image = customasset("5832745500.png", false)
     else
-    Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
+        Icon_5.Image = "http://www.roblox.com/asset/?id=5832745500"
     end
     OpenScriptEditor.Name = "OpenScriptEditor"
     OpenScriptEditor.Parent = SideMenu
@@ -735,9 +732,9 @@ CreateGui = function()
     Icon_6.Size = UDim2.new(0, 20, 0, 20)
     Icon_6.ZIndex = 2
     if customasset then
-    Icon_6.Image = customasset("7360649366.png", false)
+        Icon_6.Image = customasset("7360649366.png", false)
     else
-    Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
+        Icon_6.Image = "http://www.roblox.com/asset/?id=7360649366"
     end
     Icon_6.ImageTransparency = 1
     Toggle_2.Name = "Toggle"
@@ -1507,9 +1504,9 @@ CreateGui = function()
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.ZIndex = 5
     if customasset then
-    ImageLabel.Image = customasset("969742484.png", false)
+        ImageLabel.Image = customasset("969742484.png", false)
     else
-    ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
+        ImageLabel.Image = "http://www.roblox.com/asset/?id=969742484"
     end
     ImageLabel.ScaleType = Enum.ScaleType.Tile
     ImageLabel.TileSize = UDim2.new(25, 0, 6, 0)
@@ -1557,9 +1554,9 @@ CreateGui = function()
     BG.Size = UDim2.new(1, 0, 1, 0)
     BG.ZIndex = 3
     if customasset then
-    BG.Image = customasset("969742484.png", false)
+        BG.Image = customasset("969742484.png", false)
     else
-    BG.Image = "http://www.roblox.com/asset/?id=969742484"
+        BG.Image = "http://www.roblox.com/asset/?id=969742484"
     end
     BG.ScaleType = Enum.ScaleType.Tile
     BG.TileSize = UDim2.new(4, 0, 1, 0)
@@ -1893,39 +1890,39 @@ end
 D_E_X.Parent = cloneref(CoreGui2)
 
 local function Load(Obj, Url)
-local function GiveOwnGlobals(Func, Script)
-    local Fenv = {}
-    local RealFenv = {script = Script}
-    local FenvMt = {}
-    FenvMt.__index = function(a,b)
-        if RealFenv[b] == nil then
-            return getgenv()[b]
-        else
-            return RealFenv[b]
+    local function GiveOwnGlobals(Func, Script)
+        local Fenv = {}
+        local RealFenv = {script = Script}
+        local FenvMt = {}
+        FenvMt.__index = function(a,b)
+            if RealFenv[b] == nil then
+                return getgenv()[b]
+            else
+                return RealFenv[b]
+            end
+        end
+        FenvMt.__newindex = function(a, b, c)
+            if RealFenv[b] == nil then
+                getgenv()[b] = c
+            else
+                RealFenv[b] = c
+            end
+        end
+        setmetatable(Fenv, FenvMt)
+        setfenv(Func, Fenv)
+        return Func
+    end
+    local function LoadScripts(Script)
+        if Script.ClassName == "Script" or Script.ClassName == "LocalScript" or Script.ClassName == "ModuleScript" then
+        task.spawn(function()
+                GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
+            end)
+        end
+        for i,v in pairs(Script:GetDescendants()) do
+            pcall(LoadScripts, v)
         end
     end
-    FenvMt.__newindex = function(a, b, c)
-        if RealFenv[b] == nil then
-            getgenv()[b] = c
-        else
-            RealFenv[b] = c
-        end
-    end
-    setmetatable(Fenv, FenvMt)
-    setfenv(Func, Fenv)
-    return Func
-end
-local function LoadScripts(Script)
-    if Script.ClassName == "Script" or Script.ClassName == "LocalScript" or Script.ClassName == "ModuleScript" then
-       task.spawn(function()
-            GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
-        end)
-    end
-    for i,v in pairs(Script:GetDescendants()) do
-    pcall(LoadScripts, v)
-    end
-end
-pcall(LoadScripts, Obj)
+    pcall(LoadScripts, Obj)
 end
 pcall(Load, D_E_X)
 
@@ -1975,9 +1972,9 @@ task.spawn(function()
         LightingProperties = true,
         CameraInstances = true
     }
-    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionHasChanged")
-    local GetSelection = ExplorerPanel:WaitForChild("GetSelection")
-    local SetSelection = ExplorerPanel:WaitForChild("SetSelection")
+    local SelectionChanged = ExplorerPanel:WaitForChild("SelectionHasChanged", math.huge)
+    local GetSelection = ExplorerPanel:WaitForChild("GetSelection", math.huge)
+    local SetSelection = ExplorerPanel:WaitForChild("SetSelection", math.huge)
     local Players = cloneref(game:GetService("Players"))
     local Player = Players.LocalPlayer
     local Mouse = Player:GetMouse()
@@ -2184,9 +2181,9 @@ task.spawn(function()
     createCopyWhatSetting("StarterPlayer")
     SaveMapName.Text = tostring(game.PlaceId) .. "MapCopy"
     SaveMapButton.MouseButton1Click:connect(function()
-                if identifyexecutor() == "ScriptWare" then 
-                    return saveinstance()
-                    end
+        if identifyexecutor() == "ScriptWare" then 
+            return saveinstance()
+        end
         local copyWhat = {}
         local copyGroup = cloneref(Instance.new("Model", cloneref(game:GetService("RobloxReplicatedStorage")))) --- kaid meow
         local copyScripts = SaveMapSettings.SaveScripts
@@ -3117,7 +3114,7 @@ task.spawn(function()
                     local mouse_offset = x - ScrollThumbFrame.AbsolutePosition.x
                     local drag_con
                     local up_con
-		    local u_is = cloneref(game:GetService("UserInputService"))
+		            local u_is = cloneref(game:GetService("UserInputService"))
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
                         if not u_is:IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
@@ -3153,7 +3150,7 @@ task.spawn(function()
                     local mouse_offset = y - ScrollThumbFrame.AbsolutePosition.y
                     local drag_con
                     local up_con
-		    local u_is = cloneref(game:GetService("UserInputService"))
+		            local u_is = cloneref(game:GetService("UserInputService"))
                     drag_con = MouseDrag.MouseMoved:connect(function(x, y)
                         if not u_is:IsMouseButtonPressed 'MouseButton1' then
                             scrollEventID = tick()
